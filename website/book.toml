@@ -3,7 +3,7 @@ authors = ["Zehui2020"]
 language = "en"
 multilingual = false
 src = "src"
-title = "FYP_Q3_Documentation"
+title = "PHP_Documentation"
 
 [output.html]
 no-section-label = true
