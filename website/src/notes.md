@@ -244,4 +244,13 @@ $myCar = new Car("red", "Volvo");
 1. `ON DELETE CASCADE`: Triggered when referenced table gets deleted. Goes to referenced field in another table and delete everything referencing said field.
 1. `ON DELETE SET NULL`: Triggered when referenced table gets deleted. Set foreign key to null.
 
-1. 
+## PHP & SQL Integration
+1. `dsn`: Data Source Name. Associates the configuration parameters for communicating with a specific database. Usuall consists of: Name. Host Name. Database Name.
+1. `PDO`: PHP Data Object.
+1. `include_once` / `include`: `include_once` will do the same as `include`, but will check if file alr been included earlier, if yes, throw warning / `include` will try to find the file, and throw warning if can't find file.
+1. `require_once` / `require`: Do the same as `include_once` / `include`, but will throw error instead.
+1. `INNER JOIN` / `LEFT JOIN` / `RIGHT JOIN`: Join data from 1 table with another.
+1. `exit`: Terminate the current script. Preferablly used in scripts without any connections.
+1. `die`: Terminate the current script. Preferablly used in scripts with connections.
+1. Query: To prevent SQL injection, don't just add what the user typed straight into a SQL statement.
+1. `?` / `:`: Use these placeholders inside a query string and replace them later. 

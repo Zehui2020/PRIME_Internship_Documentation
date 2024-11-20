@@ -290,8 +290,6 @@ catch(PDOException $e)
 }
 </code></pre>
 <ol>
-<li><code>dsn</code>: Data Source Name. Associates the configuration parameters for communicating with a specific database. Usuall consists of: Name. Host Name. Database Name.</li>
-<li><code>PDO</code>: PHP Data Object.</li>
 <li><code>dbusername</code>: Username to connect to database for PDO connection.</li>
 <li><code>dbpassword</code>: Password to connect to database for PDO connection.</li>
 <li>Use <code>try catch</code> to catch any errors (just in case). Very popular in PHP.</li>
@@ -358,10 +356,6 @@ else
     header("Location: ../index.php");
 }
 </code></pre>
-<ol>
-<li><code>include_once</code> / <code>include</code>: <code>include_once</code> will do the same as <code>include</code>, but will check if file alr been included earlier, if yes, throw warning / <code>include</code> will try to find the file, and throw warning if can't find file.</li>
-<li><code>require_once</code> / <code>require</code>: Do the same as <code>include_once</code> / <code>include</code>, but will throw error instead.</li>
-</ol>
 </li>
 <li></li>
 </ol>

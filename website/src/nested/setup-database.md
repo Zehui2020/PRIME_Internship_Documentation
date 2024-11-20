@@ -101,8 +101,6 @@
         echo "Connection failed: " . $e->getMessage();
     }
     ```
-    1. `dsn`: Data Source Name. Associates the configuration parameters for communicating with a specific database. Usuall consists of: Name. Host Name. Database Name.
-    1. `PDO`: PHP Data Object.
     1. `dbusername`: Username to connect to database for PDO connection.
     1. `dbpassword`: Password to connect to database for PDO connection.
     1. Use `try catch` to catch any errors (just in case). Very popular in PHP.
@@ -143,7 +141,7 @@
 1. In `formhandler.inc.php`, we'll need:
     ```php
     <?php
-
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $username = $_POST["username"];
@@ -164,7 +162,4 @@
         header("Location: ../index.php");
     }
     ```
-    1. `include_once` / `include`: `include_once` will do the same as `include`, but will check if file alr been included earlier, if yes, throw warning / `include` will try to find the file, and throw warning if can't find file.
-    1. `require_once` / `require`: Do the same as `include_once` / `include`, but will throw error instead.
-
 1. 

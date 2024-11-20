@@ -470,7 +470,18 @@ PRIMARY KEY (id)
 <li>
 <p><code>ON DELETE SET NULL</code>: Triggered when referenced table gets deleted. Set foreign key to null.</p>
 </li>
-<li></li>
+</ol>
+<h2 id="php--sql-integration"><a class="header" href="#php--sql-integration">PHP &amp; SQL Integration</a></h2>
+<ol>
+<li><code>dsn</code>: Data Source Name. Associates the configuration parameters for communicating with a specific database. Usuall consists of: Name. Host Name. Database Name.</li>
+<li><code>PDO</code>: PHP Data Object.</li>
+<li><code>include_once</code> / <code>include</code>: <code>include_once</code> will do the same as <code>include</code>, but will check if file alr been included earlier, if yes, throw warning / <code>include</code> will try to find the file, and throw warning if can't find file.</li>
+<li><code>require_once</code> / <code>require</code>: Do the same as <code>include_once</code> / <code>include</code>, but will throw error instead.</li>
+<li><code>INNER JOIN</code> / <code>LEFT JOIN</code> / <code>RIGHT JOIN</code>: Join data from 1 table with another.</li>
+<li><code>exit</code>: Terminate the current script. Preferablly used in scripts without any connections.</li>
+<li><code>die</code>: Terminate the current script. Preferablly used in scripts with connections.</li>
+<li>Query: To prevent SQL injection, don't just add what the user typed straight into a SQL statement.</li>
+<li><code>?</code> / <code>:</code>: Use these placeholders inside a query string and replace them later.</li>
 </ol>
 
                         </div>
