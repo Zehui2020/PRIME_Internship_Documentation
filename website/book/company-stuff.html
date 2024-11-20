@@ -3,8 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Page not found - PHP_Documentation</title>
-    <base href="/">
+    <title>Company Stuff - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -90,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item expanded "><a href="company-stuff.html" class="active">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,8 +175,95 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                            <h1 id="company-stuff"><a class="header" href="#company-stuff">Company Stuff</a></h1>
+<ol>
+<li>
+<p><a href="https://pmtfresh-uat.primesupermarket.com/login.php">Seafood UAT</a></p>
+</li>
+<li>
+<p><a href="https://pmtseafood-uat.primesupermarket.com/login.php">Fresh UAT</a></p>
+</li>
+<li>
+<p><code>PMT</code>: Prime Mart Trading</p>
+</li>
+<li>
+<p><code>MSOH</code>: Min stock at hand</p>
+</li>
+<li>
+<p><code>PLU</code>: Price Lookup (barcode, etc.)</p>
+</li>
+<li>
+<p><code>Eleap</code>: Weighing system, weigh food, get barcode.</p>
+</li>
+<li>
+<p><code>IBT</code>: Price Prime sells to supermarkets.</p>
+</li>
+<li>
+<p><code>RSP</code>: Recommended Selling Price.</p>
+</li>
+<li>
+<p><code>UOM</code>: Unit Of Measurement</p>
+</li>
+<li>
+<p><code>Sage</code>: Database for fresh goods like fruits &amp; vegs</p>
+</li>
+<li>
+<p><code>Navision</code>: Database for other goods (like pencils, etc.)</p>
+</li>
+<li>
+<p><code>MAHOTA Food</code>, <code>Prime Online</code>, <code>Prime Mahota</code>: Not related to Prime</p>
+</li>
+<li>
+<p><code>Sync</code>: Since the 3 companys above are ordering from Prime as well, need to sync with other companies.</p>
+</li>
+<li>
+<p><code>MOQ</code>: Minimum Order Quantity.</p>
+</li>
+<li>
+<p><code>PO</code> / <code>PU</code>: <code>PO</code> is list of things buyers bought from outside vendors / <code>PU</code> is list of things prime sell to supermarket.</p>
+</li>
+<li>
+<p><code>Special Pricing</code>: Top priority for pricing. For giving discounts to certain customers.</p>
+</li>
+<li>
+<p><code>DO</code>: Delivery Order generated when customer recieves the product.</p>
+</li>
+<li>
+<p><code>12:00 - 14:00 &amp; 16:00 - 17:00</code>: Same day delivery.</p>
+</li>
+<li>
+<p><code>00:00 - 10:00 &amp; 12:00 - 14:00 &amp; 16:00 - 17:00</code>: Next day delivery.</p>
+</li>
+<li>
+<p><code>Add on</code> &amp; <code>Declaring stock balance</code> &amp; <code>Force allocation</code>: Ordering for seafood.</p>
+</li>
+<li>
+<p><code>Normal Ordering</code> &amp; <code>Standing Order</code> &amp; <code>Allocation Order</code>: Ordering for fresh.</p>
+<ol>
+<li><code>Normal Order</code> is similar to <code>Add On</code>, but diff cuz outlet has to select individually and "add to cart".</li>
+<li>Buyer can <code>allocate</code> to Outlet. Outlet can reject allocation order.</li>
+<li><code>Standing Order</code> can be set based on customer behaviour, e.g. every monday, etc.</li>
+</ol>
+</li>
+<li>
+<p><code>Block Normal Order</code>: If don't have stock, can block the order so customer don't order the product.</p>
+</li>
+<li>
+<p><code>Cutoff Time</code>: Did by intern. Can set num of days to block order. During block days, cannot order. Used for standing order.</p>
+</li>
+<li>
+<p>Must set delivery time for customer in pmt fresh when creating it.</p>
+</li>
+<li>
+<p><code>Account</code>: Knows how much PMT buys from Supermarket (IBT)</p>
+</li>
+<li>
+<p><code>PSM Account</code>: Can't know how much PMT buys from Supermarket (IBT)</p>
+</li>
+<li>
+<p><code>Con job</code>: Setup certain time, certain code to be ran.</p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -187,7 +273,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="setting-up-local-server.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
+                        <a rel="next prefetch" href="notes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -195,7 +287,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="setting-up-local-server.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
+                <a rel="next prefetch" href="notes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </nav>
 
         </div>

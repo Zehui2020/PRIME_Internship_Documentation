@@ -3,7 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Main Menu - PHP_Documentation</title>
+    <title>Getting Started - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="getting-started.html" class="active">Main Menu</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="getting-started.html" class="active">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -175,94 +175,7 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
-<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
-<ol>
-<li><code>===</code> : compare if value is same + if the same data type.</li>
-<li><code>!==</code> : Yah.</li>
-</ol>
-<h2 id="superglobal-vairables"><a class="header" href="#superglobal-vairables">Superglobal Vairables</a></h2>
-<ol>
-<li><code>$_POST</code>: Similar to get, but doesn't show result in url</li>
-<li><code>$_GET</code>: To send variable value to php</li>
-<li><code>$_REQUEST</code>: Array of data from $_POST, $_GET, $_COOKIE. Not recommended to use unless no choice / want all these datas. If know you want specific superglobal vairable, just use it.</li>
-<li><code>$_SERVER</code>: Holds info abt headers, paths, script locations, etc.
-<blockquote>
-<p>refer to <a href="https://www.w3schools.com/php/php_superglobals_server.asp">w3schools</a> for all elements that can go into $_SERVER</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h2>
-<ol>
-<li><code>empty()</code> : Check if vairable is empty (doesn't exist / value is false)</li>
-<li><code>is_numeric()</code>: Check if vairable is a number.</li>
-<li><code>filter_input(type, varname, filter)</code>: Filter <code>varname</code> to check for special characters, is float, etc.</li>
-<li><code>htmlspecialchars()</code>: Check for special html charas like <code>&lt;color=red&gt;&lt;/color&gt;</code></li>
-</ol>
-<h2 id="arrays"><a class="header" href="#arrays">Arrays</a></h2>
-<ol>
-<li>
-<p><code>unset($array[index])</code>: Removes value at index (doesn't shift next indes down!)</p>
-</li>
-<li>
-<p><code>array_splice(array, startIndex, indexIncrement)</code>: Removes value of index startIndex + indexIncrement and shifts it down.</p>
-<blockquote>
-<p>Can also do <code>array_splice(array, startIndex, 0, newValue)</code> to add <code>newValue</code> at position <code>startIndex</code>. Existing value at startIndex will be shifted forward 1 index to make space.
-<code>newValue</code> can also be an array!</p>
-</blockquote>
-</li>
-<li>
-<p>Array can function as <code>dictionary</code> (also called <code>associative array</code>) as well. Can assign keys to each value:</p>
-<pre><code class="language-php">$task =[
-    "laundry" =&gt; "Daniel"
-    "trash" =&gt; "Frida"
-]
-echo $tasks["laundry"]: "Daniel"
-</code></pre>
-</li>
-<li>
-<p><code>count($array)</code>: Is the same as .Length in unity.</p>
-</li>
-<li>
-<p><code>sort($array)</code>: Sort incrementaly. Does it for both alphabetical and numerical.</p>
-</li>
-<li>
-<p><code>array_push(array, value)</code>: Adds value to end of array. Only works for indexed arrays!</p>
-</li>
-<li>
-<p><code>$array[]</code>: Adds value to end of array. Works for both indexed &amp; associative arrays!</p>
-<pre><code class="language-php">// Indexed Array
-$array[] = "newValue";
-// Associative Array
-$array["newKey"] = "newValue";
-</code></pre>
-</li>
-<li>
-<p>Can also have <code>array in array</code>!</p>
-<pre><code class="language-php">// Indexed Array
-food = [
-array("banana", "cherry"),
-"watermelon",
-"apple"
-]
-echo food[0][0]: "Banana"
-
-// Associative Array
-food = [
-fruits =&gt; array("watermelon", "apple"),
-meats =&gt; array("chicken", "pork")
-]
-echo food["meats"][0]: "meats"
-
-// Associative Array in Associative Array
-food = [
-fruits =&gt; array("watermelon", "apple", "ambiguous" =&gt; "tomato"),
-meats =&gt; array("chicken", "pork")
-]
-echo food["fruits"]["ambiguous"]: "tomato"
-</code></pre>
-</li>
-</ol>
+                            <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 
                         </div>
                         <div class="sidetoc">
@@ -273,6 +186,9 @@ echo food["fruits"]["ambiguous"]: "tomato"
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                        <a rel="next prefetch" href="nested/setup-xampp.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -281,6 +197,9 @@ echo food["fruits"]["ambiguous"]: "tomato"
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                <a rel="next prefetch" href="nested/setup-xampp.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </nav>
 
         </div>

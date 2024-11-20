@@ -3,8 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Page not found - PHP_Documentation</title>
-    <base href="/">
+    <title>Setup XAMPP - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -13,31 +12,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/chrome.css">
-    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="highlight.css">
-    <link rel="stylesheet" href="tomorrow-night.css">
-    <link rel="stylesheet" href="ayu-highlight.css">
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="theme/pagetoc.css">
+    <link rel="stylesheet" href="../theme/pagetoc.css">
 
 </head>
 <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -90,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../nested/setup-xampp.html" class="active">Setup XAMPP</a></li><li class="chapter-item "><a href="../nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="../nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="../setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="../company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="../notes.html">Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -146,7 +145,7 @@
                     <h1 class="menu-title">PHP_Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -176,8 +175,38 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                            <h1 id="setup-xampp"><a class="header" href="#setup-xampp">Setup XAMPP</a></h1>
+<ol>
+<li>
+<p>Download XAMPP using <a href="https://www.apachefriends.org/download.html">this</a> link. Make sure to download <code>XAMPP for Windows</code>.</p>
+</li>
+<li>
+<p>Unzip the folder and place it in your <code>C:/</code> drive.</p>
+</li>
+<li>
+<p>To boot up XAMPP, run <code>xampp-control.exe</code>. Also, for quick access in the future, you can pin it to the task bar. Your XAMPP should look like this:</p>
+<p><img src="../images/xampp.PNG" alt="" /></p>
+</li>
+<li>
+<p>Now click <code>Start</code> for both <code>Apache</code> and <code>MySQL</code>.</p>
+</li>
+<li>
+<p>If you notice the error: <code>Problem Detected! Port 80 in use by ...</code> when trying to run Apache, this is because something is using <code>port 80</code> on the <code>localhost</code> currently. To fix this, click on <code>config</code> button on the Apache row and select <code>Apache (httpd.conf)</code> in notepad.</p>
+<p><img src="../images/apache-config.PNG" alt="" /></p>
+</li>
+<li>
+<p>What XAMPP does is to default to use <code>port 80</code> on the <code>localhost</code> as a server. Since it's in use, we can just change the port number to something else. Hit <code>CTRL + F</code> to find <code>80</code> within the notepad. Replace ALL the <code>80</code> in the notepad with a number like <code>8080</code>.</p>
+</li>
+<li>
+<p>You'll have to do the same for the <code>SSL</code> port. Open up <code>config&gt;Apache (httd-ssl.conf)</code> and find <code>443</code> within the notepad. Replace ALL the <code>443</code>s in the notepad with a number like <code>4443</code>.</p>
+</li>
+<li>
+<p>Make sure to save all your changes and restart XAMPP. When you try to run Apache after making the changes, it should work and stay on <code>[Apache] Status change detected: running</code> in the consolse</p>
+</li>
+<li>
+<p>Once that is done, you can move onto <a href="./setup-php.html">setting up PHP</a>.</p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -187,7 +216,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="../getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
+                        <a rel="next prefetch" href="../nested/setup-php.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -195,7 +230,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="../getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
+                <a rel="next prefetch" href="../nested/setup-php.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </nav>
 
         </div>
@@ -224,16 +265,16 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/pagetoc.js"></script>
+        <script src="../theme/pagetoc.js"></script>
 
 
     </div>

@@ -3,8 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Page not found - PHP_Documentation</title>
-    <base href="/">
+    <title>Setup PHP - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -13,31 +12,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/chrome.css">
-    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="highlight.css">
-    <link rel="stylesheet" href="tomorrow-night.css">
-    <link rel="stylesheet" href="ayu-highlight.css">
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="theme/pagetoc.css">
+    <link rel="stylesheet" href="../theme/pagetoc.css">
 
 </head>
 <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -90,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item expanded "><a href="../nested/setup-php.html" class="active">Setup PHP</a></li><li class="chapter-item "><a href="../nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="../setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="../company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="../notes.html">Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -146,7 +145,7 @@
                     <h1 class="menu-title">PHP_Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -176,8 +175,32 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                            <h1 id="setup-php"><a class="header" href="#setup-php">Setup PHP</a></h1>
+<ol>
+<li>
+<p>To effeciently write PHP, you'll need a code editor. I recommend using <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+</li>
+<li>
+<p>Once you boot up VSC (visual studio code), add the <code>htdocs</code> folder in <code>xampp</code>:</p>
+<ol>
+<li>In VSC, go to <code>file &gt; open folder</code>, and search for the <code>htdocs</code> folder in <code>xampp</code> and click <code>add folder</code>.</li>
+</ol>
+</li>
+<li>
+<p>For this tutorial, create a new folder called <code>TutorialWebsite</code> in the <code>htdocs</code> folder. You can do this in VSC itself using the <code>new folder</code> button at the top. Image below for reference only.</p>
+<p><img src="../images/new-folder.PNG" alt="" /></p>
+</li>
+<li>
+<p>Inside the <code>TutorialWebsite</code> folder, create a new file called <code>index.php</code> and open it up.</p>
+</li>
+<li>
+<p>To make coding in PHP easier, you'll have to download the <code>PHP Intellisense</code> extension in VSC. Click on the extensions tab in VSC and search <code>PHP Intellisense</code> and install it.</p>
+<p><img src="../images/php-intelli.PNG" alt="" /></p>
+</li>
+<li>
+<p>Great, you're now ready to code PHP! To learn about PHP, I recommend using <a href="https://www.w3schools.com/php/default.asp">w3schools</a> and watching <a href="https://www.youtube.com/watch?v=m52ljs78S24&amp;list=PL0eyrZgxdwhwwQQZA79OzYwl5ewA7HQih&amp;index=2">this</a> youtube tutorial playlist.</p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -187,7 +210,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="../nested/setup-xampp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
+                        <a rel="next prefetch" href="../nested/setup-database.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -195,7 +224,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="../nested/setup-xampp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
+                <a rel="next prefetch" href="../nested/setup-database.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </nav>
 
         </div>
@@ -224,16 +259,16 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/pagetoc.js"></script>
+        <script src="../theme/pagetoc.js"></script>
 
 
     </div>

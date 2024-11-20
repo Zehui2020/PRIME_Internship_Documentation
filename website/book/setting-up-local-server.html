@@ -3,8 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Page not found - PHP_Documentation</title>
-    <base href="/">
+    <title>Install pmtweb On Local Host - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -90,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item expanded "><a href="setting-up-local-server.html" class="active">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,8 +175,133 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                            <h1 id="setting-up-local-server"><a class="header" href="#setting-up-local-server">Setting up local server</a></h1>
+<ol>
+<li>
+<p>To set up Prime's <code>pmtweb</code> on your device's localhost, you'll have to make sure your PHP version in <code>xampp</code> is the same (for consistency) as <code>pmtweb's</code>. Prime's <code>pmtweb</code> uses <code>PHP 7.4</code> and the default download (as of <code>11/19/2024</code>) for <code>xampp</code> is <code>PHP 8.2.12</code>.</p>
+</li>
+<li>
+<p>To check your php version, start up <code>mysql</code> and <code>Apache</code> in <code>xampp</code>. Open up VS code and open the <code>htdocs</code> folder in <code>xampp</code>. Create a file inside <code>htdocs</code> called <code>info.php</code> and type:</p>
+<pre><code class="language-php">&lt;?php
+phpinfo();
+</code></pre>
+<p><img src="./images/create-info.png" alt="" /></p>
+</li>
+<li>
+<p>Now go to your web browser and type in the following. Do note that the url might differ based on your <code>folder structure</code> and localhost <code>port number</code> (it's 80 by default).</p>
+<blockquote>
+<p>localhost:8080/info.php</p>
+</blockquote>
+</li>
+<li>
+<p>You should see a page shown below. You can view your php version at the top.</p>
+<p><img src="./images/php-info.PNG" alt="" /></p>
+</li>
+<li>
+<p>If the version is <code>PHP Version 7.4.33</code>, you can skip till <code>step 11</code>.</p>
+</li>
+<li>
+<p>Otherwise, go to <a href="https://windows.php.net/downloads/releases/archives/">this</a> <code>php</code> download site and download the <code>php-7.4.33-Win32-vc15-x64.zip</code> file.</p>
+</li>
+<li>
+<p>Unzip the file and rename it to <code>php</code>. Please check that you have a file named something like <code>php7apache2_4.dll</code> in the folder. If you don't, go back to the site and download the <code>php-7.4.33-nts-Win32-vc15-x64.zip</code> (non-thread-safe version) instead.</p>
+</li>
+<li>
+<p>Make sure to rename the old php folder in <code>xampp</code> to something else like <code>old_php</code>. After which, move the newly downloaded php folder into <code>xampp</code>.</p>
+</li>
+<li>
+<p>Opening up the folder, you should see 2 config files in the <code>php</code> folder: <code>php.ini-production</code> and <code>php.ini-development</code>. Since we're using <code>xampp</code>, we should be using <code>php.ini-development</code>. Rename it to <code>php.ini</code> (Yup, you're changing the file type).</p>
+</li>
+<li>
+<p>Open up <code>xampp control panel</code> and on <code>Apache</code> row, click on <code>config &gt; Apache (httpd:xampp.conf)</code>.</p>
+<p><img src="./images/apache-xampp-config.png" alt="" /></p>
+<ol>
+<li>Find the following:</li>
+</ol>
+<pre><code class="language-php">LoadFile "/xampp/php/php8ts.dll"
+LoadModule php_module "/xampp/php/php8apache2_4.dll"
+</code></pre>
+<ol>
+<li>Change <code>php8ts.dll</code> to <code>php7ts.dll</code></li>
+<li>Change <code>php_module</code> to <code>php7_module</code></li>
+<li>Change <code>php8apache2_4.dll</code> to <code>php7apache2_4.dll</code></li>
+</ol>
+</li>
+<li>
+<p>You'll need <code>mysqli</code> extension in <code>php</code> enabled to connect to <code>pmtweb</code>. To enable this, on <code>Apache</code> row, click on <code>config &gt; PHP (php.ini)</code>.</p>
+<p><img src="./images/apache-php-config.png" alt="" /></p>
+<ol>
+<li>Search for the line:
+<blockquote>
+<p>extension=mysqli</p>
+</blockquote>
+</li>
+<li>Make sure that this line is <code>uncommented</code>. If you see a <code>;</code> at the front of this line, remove it to uncomment.</li>
+</ol>
+</li>
+<li>
+<p>Now go back to <code>info.php</code>. If you see a <code>mysqli</code> section when you search for it, you're good to go.</p>
+<blockquote>
+<p>localhost:8080/info.php</p>
+</blockquote>
+<p><img src="./images/mysqli-section.png" alt="" /></p>
+</li>
+<li>
+<p>If you don't, it's most likely the issue with the filepath to the <code>ext</code> folder in php. To fix this, in the <code>php.ini</code> file, find this section:</p>
+<pre><code>; Directory in which the loadable extensions (modules) reside.
+; http://php.net/extension-dir
+;extension_dir = "./"
+; On windows:
+;extension_dir = "ext"
+</code></pre>
+<ol>
+<li>Type in the filepath to the <code>xampp&gt;php&gt;ext</code> folder and <code>uncomment</code> it. It should look like this:</li>
+</ol>
+<pre><code>; Directory in which the loadable extensions (modules) reside.
+; http://php.net/extension-dir
+;extension_dir = "./"
+; On windows:
+extension_dir = "C:\xampp\php\ext"
+</code></pre>
+</li>
+<li>
+<p>Check <code>info.php</code> again to confirm the mysqli section is there.</p>
+</li>
+<li>
+<p>Once this is done, make sure you have access to the <code>pmtweb</code> repository (if you don't, ask your supervisor). Download it as zip (or use git to clone it, whichever is easier for you). Place the project into the <code>htdocs</code> folder in <code>xampp</code>.</p>
+</li>
+<li>
+<p>Now, you'll have to create the database for <code>pmtweb</code>. Go to <code>phpMyAdmin</code> and create a new database as shown below. Make sure the database uses <code>utf8_general_ci</code>!</p>
+<pre><code>// Link to phpMyAdmin (differs based on port number)
+localhost:8080/phpMyAdmin
+</code></pre>
+<p><img src="./images/create-pmtweb-database.png" alt="" /></p>
+</li>
+<li>
+<p>Click on the newly created <code>pmtweb</code> database and go to the <code>import</code> tab above. Download <a href="./others/pmtweb.sql.zip">this</a> zip file and import it. Use default settings for the other options and click <code>Import</code> at the bottom. After a while, the database should be ready to go.</p>
+<p><img src="./images/import-db.png" alt="" /></p>
+</li>
+<li>
+<p>Lastly, you'll need to add a user with ALL PRIVILEGES. To do this, select the <code>pmtweb</code> database &gt; SQL tab and paste this inside:</p>
+<pre><code class="language-sql">CREATE USER 'prime'@'localhost' IDENTIFIED BY 'Prime!23';
+GRANT ALL PRIVILEGES ON *.* TO 'prime'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+</code></pre>
+<ol>
+<li>Click on <code>Go</code> to exceute the code.</li>
+</ol>
+<p><img src="./images/create-user.png" alt="" /></p>
+</li>
+<li>
+<p>If you see no errors, type the url shown below to access <code>pmtweb</code> on the web!</p>
+<pre><code>// Link to pmtweb (differs based on port number)
+localhost:8080/pmtweb-master/index.php
+</code></pre>
+</li>
+<li>
+<p>Now do the same for the <a href="./others/fresh.sql.zip">fresh</a> database (you'll also need the fresh repository)</p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -187,7 +311,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="nested/setup-database.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
+                        <a rel="next prefetch" href="company-stuff.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -195,7 +325,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="nested/setup-database.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
+                <a rel="next prefetch" href="company-stuff.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </nav>
 
         </div>
