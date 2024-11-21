@@ -325,37 +325,6 @@ SELECT * FROM users RIGHT JOIN comments ON users.id = comments.users_id;
 </code></pre>
 </li>
 <li>
-<p>To connect database to PHP website, there are 3 methods:</p>
-<ol>
-<li><code>mysql</code> (deprecated &amp; unsafe. Do not use this.)</li>
-<li><code>mysqli</code></li>
-<li><code>PDO</code></li>
-</ol>
-</li>
-<li>
-<p>We'll be using <code>PDO</code>:</p>
-<pre><code class="language-php">&lt;?php
-$dsn = "mysql:host=localhost;dbname=tutorialdatabase";
-$dbusername = "root";
-$dbpassword = "";
-
-try
-{
-    $pdo = new PDO($dsn, $dbusername, $dbpassword);
-    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
-    echo "Connection failed: " . $e-&gt;getMessage();
-}
-</code></pre>
-<ol>
-<li><code>dbusername</code>: Username to connect to database for PDO connection.</li>
-<li><code>dbpassword</code>: Password to connect to database for PDO connection.</li>
-<li>Use <code>try catch</code> to catch any errors (just in case). Very popular in PHP.</li>
-</ol>
-</li>
-<li>
 <p>To change stats for users, go to <code>phpMyAdmin &gt; User Accounts</code> and find the localhost <code>Host Name</code> and root <code>User Name</code>. Select that.</p>
 <p><img src="nested/../images/php-users.png" alt="" /></p>
 </li>
@@ -367,7 +336,29 @@ catch(PDOException $e)
 <p>To change password, click on <code>Change Password</code> tab near the top and do it there.</p>
 </li>
 <li>
-<p>Back to PHP, we'll need to create a file called <code>formhandler.inc.php</code> under the <code>includes</code> folder, along with a <code>index.php</code> file for the html code.</p>
+<p>To connect database to PHP website, there are 3 methods:</p>
+<ol>
+<li><code>mysql</code> (deprecated &amp; unsafe. Do not use this.)</li>
+<li><code>mysqli</code></li>
+<li><code>PDO</code></li>
+</ol>
+</li>
+<li>
+<p>Back to PHP, <code>pmtweb</code> uses <code>mysqli</code>, so we'll be using that as well. To connect to the database, you'll need:</p>
+<pre><code class="language-php">&lt;?php
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "tutorialdatabase";
+
+$link = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+if (!$link) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+</code></pre>
+</li>
+<li>
+<p>We'll need to create a file called <code>formhandler.inc.php</code> under the <code>includes</code> folder, along with a <code>index.php</code> file for the html code.</p>
 </li>
 <li>
 <p>In the <code>index.php</code>, we create a simple form submission:</p>
@@ -555,10 +546,16 @@ localhost:8080/pmtweb-master/index.php
 <p><a href="https://pmtseafood-uat.primesupermarket.com/login.php">Fresh UAT</a></p>
 </li>
 <li>
-<p><code>PMT</code>: Prime Mart Trading</p>
+<p><code>UAT</code>: User acceptance testing: Testing system among users.</p>
 </li>
 <li>
-<p><code>MSOH</code>: Min stock at hand</p>
+<p><code>SIT</code>: System Integration Testing: Testing system among devs.</p>
+</li>
+<li>
+<p><code>PMT</code>: Prime Mart Trading.</p>
+</li>
+<li>
+<p><code>MSOH</code>: Min stock at hand.</p>
 </li>
 <li>
 <p><code>PLU</code>: Price Lookup (barcode, etc.)</p>
@@ -582,10 +579,10 @@ localhost:8080/pmtweb-master/index.php
 <p><code>Navision</code>: Database for other goods (like pencils, etc.)</p>
 </li>
 <li>
-<p><code>MAHOTA Food</code>, <code>Prime Online</code>, <code>Prime Mahota</code>: Not related to Prime</p>
+<p><code>MAHOTA Food</code>, <code>Prime Online</code>, <code>Prime Prime</code>: Not related to Prime. Mahota, Prime Online is e-commerce.</p>
 </li>
 <li>
-<p><code>Sync</code>: Since the 3 companys above are ordering from Prime as well, need to sync with other companies.</p>
+<p><code>Sync</code>: Since the 3 companys above are ordering from Prime as well, need to sync with other companies. Prime Online is for corperate customers, Prime Prime for normal consumers.</p>
 </li>
 <li>
 <p><code>MOQ</code>: Minimum Order Quantity.</p>
@@ -633,6 +630,51 @@ localhost:8080/pmtweb-master/index.php
 </li>
 <li>
 <p><code>Con job</code>: Setup certain time, certain code to be ran.</p>
+</li>
+<li>
+<p><code>CMS</code>: Content Managment System.</p>
+</li>
+<li>
+<p><code>SSL</code>: Secure Sockets Layer. Encrypts data btw server &amp; website.</p>
+</li>
+<li>
+<p><code>http</code>: port num 80 defualt. Not secure, outsider can listen in.</p>
+</li>
+<li>
+<p><code>https</code>: Port num 443 default. More secure, outsider cannot listen in.</p>
+</li>
+<li>
+<p><code>middleman attack</code>: Same website, diff URL.</p>
+</li>
+<li>
+<p><code>Intranet</code>: Any new from HR post onto notice board. Using Jun Lao.</p>
+</li>
+<li>
+<p><code>DNS</code>: Domain Name System.</p>
+</li>
+<li>
+<p><code>IP Address</code>: Internet Protocol. A unique number that gets linked to all online activity you do</p>
+</li>
+<li>
+<p><code>IPv4</code>: Uses 32-bit address: 2^32 of possible adresses.</p>
+</li>
+<li>
+<p><code>IPv6</code>: Uses 64-bit address: 3^64 possible adresses.</p>
+</li>
+<li>
+<p><code>Prime Fish Farms</code>: 3 total: Pasir Ris, Kelong, Katam</p>
+</li>
+<li>
+<p><code>WMS</code>: Warehouse Managment System.</p>
+</li>
+<li>
+<p><code>IPS Project</code>: WMS/PGI. Combine every ordering into 1 system.</p>
+</li>
+<li>
+<p><code>JLPI</code>: Old packeting system.</p>
+</li>
+<li>
+<p><code>SOP</code>: Standard Operating Procedures.</p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
@@ -933,15 +975,39 @@ PRIMARY KEY (id)
 </ol>
 <h2 id="php--sql-integration"><a class="header" href="#php--sql-integration">PHP &amp; SQL Integration</a></h2>
 <ol>
-<li><code>dsn</code>: Data Source Name. Associates the configuration parameters for communicating with a specific database. Usuall consists of: Name. Host Name. Database Name.</li>
-<li><code>PDO</code>: PHP Data Object.</li>
-<li><code>include_once</code> / <code>include</code>: <code>include_once</code> will do the same as <code>include</code>, but will check if file alr been included earlier, if yes, throw warning / <code>include</code> will try to find the file, and throw warning if can't find file.</li>
-<li><code>require_once</code> / <code>require</code>: Do the same as <code>include_once</code> / <code>include</code>, but will throw error instead.</li>
-<li><code>INNER JOIN</code> / <code>LEFT JOIN</code> / <code>RIGHT JOIN</code>: Join data from 1 table with another.</li>
-<li><code>exit</code>: Terminate the current script. Preferablly used in scripts without any connections.</li>
-<li><code>die</code>: Terminate the current script. Preferablly used in scripts with connections.</li>
-<li>Query: To prevent SQL injection, don't just add what the user typed straight into a SQL statement.</li>
-<li><code>?</code> / <code>:</code>: Use these placeholders inside a query string and replace them later.</li>
+<li>
+<p><code>include_once</code> / <code>include</code>: <code>include_once</code> will do the same as <code>include</code>, but will check if file alr been included earlier, if yes, throw warning / <code>include</code> will try to find the file, and throw warning if can't find file.</p>
+</li>
+<li>
+<p><code>require_once</code> / <code>require</code>: Do the same as <code>include_once</code> / <code>include</code>, but will throw error instead.</p>
+</li>
+<li>
+<p><code>INNER JOIN</code> / <code>LEFT JOIN</code> / <code>RIGHT JOIN</code>: Join data from 1 table with another.</p>
+</li>
+<li>
+<p><code>exit</code>: Terminate the current script. Preferablly used in scripts without any connections.</p>
+</li>
+<li>
+<p><code>die</code>: Terminate the current script. Preferablly used in scripts with connections.</p>
+</li>
+<li>
+<p>Query: To prevent SQL injection, don't just add what the user typed straight into a SQL statement.</p>
+</li>
+<li>
+<p><code>?</code> / <code>:</code>: Use these placeholders inside a query string and replace them later.</p>
+</li>
+<li>
+<p>Sequence when send SQL:</p>
+<ol>
+<li>Create <code>$sql</code> statement</li>
+<li>Prepare the <code>$sql</code> statement using <code>$link</code> to database</li>
+<li>Bind any params</li>
+<li>Execute the statement</li>
+<li>Get result using <code>get_result()</code></li>
+<li>Do something with the result!</li>
+</ol>
+</li>
+<li></li>
 </ol>
 
                         </div>

@@ -79,32 +79,6 @@
     /* Result: Shows all comments (including ones with no user), but comments with no user will have NULL shown under user */
     ```
 
-1. To connect database to PHP website, there are 3 methods:
-    1. `mysql` (deprecated & unsafe. Do not use this.)
-    1. `mysqli`
-    1. `PDO`
-
-1. We'll be using `PDO`:
-    ```php
-    <?php
-    $dsn = "mysql:host=localhost;dbname=tutorialdatabase";
-    $dbusername = "root";
-    $dbpassword = "";
-
-    try
-    {
-        $pdo = new PDO($dsn, $dbusername, $dbpassword);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(PDOException $e)
-    {
-        echo "Connection failed: " . $e->getMessage();
-    }
-    ```
-    1. `dbusername`: Username to connect to database for PDO connection.
-    1. `dbpassword`: Password to connect to database for PDO connection.
-    1. Use `try catch` to catch any errors (just in case). Very popular in PHP.
-
 1. To change stats for users, go to `phpMyAdmin > User Accounts` and find the localhost `Host Name` and root `User Name`. Select that.
 
     ![](../images/php-users.png)
@@ -115,7 +89,25 @@
 
 1. To change password, click on `Change Password` tab near the top and do it there.
 
-1. Back to PHP, we'll need to create a file called `formhandler.inc.php` under the `includes` folder, along with a `index.php` file for the html code.
+1. To connect database to PHP website, there are 3 methods:
+    1. `mysql` (deprecated & unsafe. Do not use this.)
+    1. `mysqli`
+    1. `PDO`
+
+1. Back to PHP, `pmtweb` uses `mysqli`, so we'll be using that as well. To connect to the database, you'll need:
+    ```php
+    <?php
+    $host = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "tutorialdatabase";
+
+    $link = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+    if (!$link) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    ```
+1. We'll need to create a file called `formhandler.inc.php` under the `includes` folder, along with a `index.php` file for the html code.
 
 1. In the `index.php`, we create a simple form submission:
     ```html

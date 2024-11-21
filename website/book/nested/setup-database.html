@@ -265,37 +265,6 @@ SELECT * FROM users RIGHT JOIN comments ON users.id = comments.users_id;
 </code></pre>
 </li>
 <li>
-<p>To connect database to PHP website, there are 3 methods:</p>
-<ol>
-<li><code>mysql</code> (deprecated &amp; unsafe. Do not use this.)</li>
-<li><code>mysqli</code></li>
-<li><code>PDO</code></li>
-</ol>
-</li>
-<li>
-<p>We'll be using <code>PDO</code>:</p>
-<pre><code class="language-php">&lt;?php
-$dsn = "mysql:host=localhost;dbname=tutorialdatabase";
-$dbusername = "root";
-$dbpassword = "";
-
-try
-{
-    $pdo = new PDO($dsn, $dbusername, $dbpassword);
-    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
-    echo "Connection failed: " . $e-&gt;getMessage();
-}
-</code></pre>
-<ol>
-<li><code>dbusername</code>: Username to connect to database for PDO connection.</li>
-<li><code>dbpassword</code>: Password to connect to database for PDO connection.</li>
-<li>Use <code>try catch</code> to catch any errors (just in case). Very popular in PHP.</li>
-</ol>
-</li>
-<li>
 <p>To change stats for users, go to <code>phpMyAdmin &gt; User Accounts</code> and find the localhost <code>Host Name</code> and root <code>User Name</code>. Select that.</p>
 <p><img src="../images/php-users.png" alt="" /></p>
 </li>
@@ -307,7 +276,29 @@ catch(PDOException $e)
 <p>To change password, click on <code>Change Password</code> tab near the top and do it there.</p>
 </li>
 <li>
-<p>Back to PHP, we'll need to create a file called <code>formhandler.inc.php</code> under the <code>includes</code> folder, along with a <code>index.php</code> file for the html code.</p>
+<p>To connect database to PHP website, there are 3 methods:</p>
+<ol>
+<li><code>mysql</code> (deprecated &amp; unsafe. Do not use this.)</li>
+<li><code>mysqli</code></li>
+<li><code>PDO</code></li>
+</ol>
+</li>
+<li>
+<p>Back to PHP, <code>pmtweb</code> uses <code>mysqli</code>, so we'll be using that as well. To connect to the database, you'll need:</p>
+<pre><code class="language-php">&lt;?php
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "tutorialdatabase";
+
+$link = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+if (!$link) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+</code></pre>
+</li>
+<li>
+<p>We'll need to create a file called <code>formhandler.inc.php</code> under the <code>includes</code> folder, along with a <code>index.php</code> file for the html code.</p>
 </li>
 <li>
 <p>In the <code>index.php</code>, we create a simple form submission:</p>
