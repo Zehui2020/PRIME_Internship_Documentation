@@ -41,7 +41,7 @@
 1. `DNS`: Domain Name System. 
 1. `IP Address`: Internet Protocol. A unique number that gets linked to all online activity you do
 1. `IPv4`: Uses 32-bit address: 2^32 of possible adresses.
-1. `IPv6`: Uses 64-bit address: 3^64 possible adresses.
+1. `IPv6`: Uses 128-bit address: 2^64 possible adresses.
 1. `Prime Fish Farms`: 3 total: Pasir Ris, Kelong, Katam
 1. `WMS`: Warehouse Managment System.
 1. `IPS Project`: WMS/PGI. Combine every ordering into 1 system.
