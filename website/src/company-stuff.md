@@ -51,4 +51,3 @@
 1. `Prime Rewards QR`: 3 Types: Member, Prime, Coupon QR.
 1. `Prime Points`: 200 pts -> $1. $20 -> 1 stamp. Can only get 1 daily. Resets monthly. If have max scratches and you earn more, the extras will be ignored.
 1. `POS`: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.
-1. 

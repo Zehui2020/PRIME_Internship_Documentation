@@ -94,7 +94,7 @@
     1. `mysqli`
     1. `PDO`
 
-1. Back to PHP, `pmtweb` uses `mysqli`, so we'll be using that as well. To connect to the database, you'll need:
+1. Back to PHP, `pmtweb` uses `mysqli`, so we'll be using that as well. Create a file named `config.php` and write this:
     ```php
     <?php
     $host = "localhost";
@@ -107,51 +107,6 @@
         die("Connection failed: " . mysqli_connect_error());
     }
     ```
-1. We'll need to create a file called `formhandler.inc.php` under the `includes` folder, along with a `index.php` file for the html code.
+    1. This uses the `mysqli_connect` function to connect localhost to `tutorialdatabase` using the `root` user.
 
-1. In the `index.php`, we create a simple form submission:
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <form action="includes/formhandler.inc.php" method="post">
-            <input type = "text" name = "username" placeholder = "Username">
-            <input type = "text" name = "pwd" placeholder = "Password">        
-            <input type = "text" name = "email" placeholder = "Email">
-        </form>
-    </body>
-    </html>
-    ```
-    1. Since we want to post the results to php, we'll need the fill in the `name` attribute.
-    1. We'll also need the `action` attribute to send the data to `formhandler.inc.php` using `post`.
-
-1. In `formhandler.inc.php`, we'll need:
-    ```php
-    <?php
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        $username = $_POST["username"];
-        $pwd = $_POST["pwd"];
-        $email = $_POST["email"];
-
-        try
-        {
-            require_once "dbh.inc.php";
-        }
-        catch(PDOException $e)
-        {
-            die("Query Failed: " . $e->getMessage());
-        }
-    }
-    else
-    {
-        header("Location: ../index.php");
-    }
-    ```
-1. 
+1. Congrats! You can start building your own website and send data into your database!

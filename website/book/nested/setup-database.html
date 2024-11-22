@@ -284,7 +284,7 @@ SELECT * FROM users RIGHT JOIN comments ON users.id = comments.users_id;
 </ol>
 </li>
 <li>
-<p>Back to PHP, <code>pmtweb</code> uses <code>mysqli</code>, so we'll be using that as well. To connect to the database, you'll need:</p>
+<p>Back to PHP, <code>pmtweb</code> uses <code>mysqli</code>, so we'll be using that as well. Create a file named <code>config.php</code> and write this:</p>
 <pre><code class="language-php">&lt;?php
 $host = "localhost";
 $dbusername = "root";
@@ -296,59 +296,13 @@ if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
 }
 </code></pre>
-</li>
-<li>
-<p>We'll need to create a file called <code>formhandler.inc.php</code> under the <code>includes</code> folder, along with a <code>index.php</code> file for the html code.</p>
-</li>
-<li>
-<p>In the <code>index.php</code>, we create a simple form submission:</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form action="includes/formhandler.inc.php" method="post"&gt;
-        &lt;input type = "text" name = "username" placeholder = "Username"&gt;
-        &lt;input type = "text" name = "pwd" placeholder = "Password"&gt;        
-        &lt;input type = "text" name = "email" placeholder = "Email"&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 <ol>
-<li>Since we want to post the results to php, we'll need the fill in the <code>name</code> attribute.</li>
-<li>We'll also need the <code>action</code> attribute to send the data to <code>formhandler.inc.php</code> using <code>post</code>.</li>
+<li>This uses the <code>mysqli_connect</code> function to connect localhost to <code>tutorialdatabase</code> using the <code>root</code> user.</li>
 </ol>
 </li>
 <li>
-<p>In <code>formhandler.inc.php</code>, we'll need:</p>
-<pre><code class="language-php">&lt;?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    $username = $_POST["username"];
-    $pwd = $_POST["pwd"];
-    $email = $_POST["email"];
-
-    try
-    {
-        require_once "dbh.inc.php";
-    }
-    catch(PDOException $e)
-    {
-        die("Query Failed: " . $e-&gt;getMessage());
-    }
-}
-else
-{
-    header("Location: ../index.php");
-}
-</code></pre>
+<p>Congrats! You can start building your own website and send data into your database!</p>
 </li>
-<li></li>
 </ol>
 
                         </div>
