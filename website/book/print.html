@@ -177,6 +177,19 @@
                     <main>
                         <div class="content-wrap">
                             <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<ol>
+<li>
+<p>This documentation will guide you through:</p>
+<ol>
+<li>Setting up required software</li>
+<li>Setting up database in phpMyAdmin</li>
+<li>Installing <code>pmtweb</code> &amp; other portals on the localhost</li>
+<li>Company Terminology &amp; Lingo &amp; Other Infos.</li>
+<li>Teaching basic PHP &amp; SQL for web</li>
+</ol>
+</li>
+<li></li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="setup-xampp"><a class="header" href="#setup-xampp">Setup XAMPP</a></h1>
 <ol>
 <li>
@@ -311,7 +324,7 @@ SELECT * FROM users WHERE id = 2;
 </code></pre>
 </li>
 <li>
-<p>To select data from multiple tables:</p>
+<p>To select data from multiple tables using primary / secondary keys:</p>
 <pre><code class="language-sql">SELECT * FROM users INNER JOIN comments ON users.id = comments.users_id;
 /* Result: Shows all users who made comments */
 
@@ -367,7 +380,7 @@ if (!$link) {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="setting-up-local-server"><a class="header" href="#setting-up-local-server">Setting up local server</a></h1>
 <ol>
 <li>
-<p>To set up Prime's <code>pmtweb</code> on your device's localhost, you'll have to make sure your PHP version in <code>xampp</code> is the same (for consistency) as <code>pmtweb's</code>. Prime's <code>pmtweb</code> uses <code>PHP 7.4</code> and the default download (as of <code>11/19/2024</code>) for <code>xampp</code> is <code>PHP 8.2.12</code>.</p>
+<p>To set up Prime's <code>pmtweb</code> on your device's localhost, you'll have to make sure your PHP version in <code>xampp</code> is the same (for consistency) as <code>pmtweb</code>. Prime's <code>pmtweb</code> uses <code>PHP 7.4.33</code>.</p>
 </li>
 <li>
 <p>To check your php version, start up <code>mysql</code> and <code>Apache</code> in <code>xampp</code>. Open up VS code and open the <code>htdocs</code> folder in <code>xampp</code>. Create a file inside <code>htdocs</code> called <code>info.php</code> and type:</p>
@@ -378,9 +391,9 @@ phpinfo();
 </li>
 <li>
 <p>Now go to your web browser and type in the following. Do note that the url might differ based on your <code>folder structure</code> and localhost <code>port number</code> (it's 80 by default).</p>
-<blockquote>
-<p>localhost:8080/info.php</p>
-</blockquote>
+<pre><code>// Link differs based on port number &amp; filepath!
+localhost/info.php
+</code></pre>
 </li>
 <li>
 <p>You should see a page shown below. You can view your php version at the top.</p>
@@ -430,9 +443,9 @@ LoadModule php_module "/xampp/php/php8apache2_4.dll"
 </li>
 <li>
 <p>Now go back to <code>info.php</code>. If you see a <code>mysqli</code> section when you search for it, you're good to go.</p>
-<blockquote>
-<p>localhost:8080/info.php</p>
-</blockquote>
+<pre><code>// Link differs based on port number &amp; filepath!
+localhost/info.php
+</code></pre>
 <p><img src="./images/mysqli-section.png" alt="" /></p>
 </li>
 <li>
@@ -457,17 +470,17 @@ extension_dir = "C:\xampp\php\ext"
 <p>Check <code>info.php</code> again to confirm the mysqli section is there.</p>
 </li>
 <li>
-<p>Once this is done, make sure you have access to the <code>pmtweb</code> repository (if you don't, ask your supervisor). Download it as zip (or use git to clone it, whichever is easier for you). Place the project into the <code>htdocs</code> folder in <code>xampp</code>.</p>
+<p>Once this is done, make sure you have access to the <code>pmtweb</code> repository (if you don't, ask your supervisor). Git clone the project into the <code>htdocs</code> folder in <code>xampp</code>.</p>
 </li>
 <li>
 <p>Now, you'll have to create the database for <code>pmtweb</code>. Go to <code>phpMyAdmin</code> and create a new database as shown below. Make sure the database uses <code>utf8_general_ci</code>!</p>
-<pre><code>// Link to phpMyAdmin (differs based on port number)
-localhost:8080/phpMyAdmin
+<pre><code>// Link differs based on port number &amp; filepath!
+localhost/phpMyAdmin
 </code></pre>
 <p><img src="./images/create-pmtweb-database.png" alt="" /></p>
 </li>
 <li>
-<p>Click on the newly created <code>pmtweb</code> database and go to the <code>import</code> tab above. Download <a href="./others/pmtweb.sql.zip">this</a> zip file and import it. Use default settings for the other options and click <code>Import</code> at the bottom. After a while, the database should be ready to go.</p>
+<p>Click on the newly created <code>pmtweb</code> database and go to the <code>import</code> tab above. Download <a href="./documentation/others/pmtweb.sql.zip">this</a> zip file and import it. Use default settings for the other options and click <code>Import</code> at the bottom. After a while, the database should be ready to go.</p>
 <p><img src="./images/import-db.png" alt="" /></p>
 </li>
 <li>
@@ -482,22 +495,19 @@ FLUSH PRIVILEGES;
 <p><img src="./images/create-user.png" alt="" /></p>
 </li>
 <li>
-<p>If you see no errors, type the url shown below to access <code>pmtweb</code> on the web!</p>
-<pre><code>// Link to pmtweb (differs based on port number)
-localhost:8080/pmtweb-master/index.php
+<p>Once the user is created, type the url shown below to access <code>pmtweb</code> on the web!</p>
+<pre><code>// Link differs based on port number &amp; filepath!
+localhost/pmtweb/index.php
 </code></pre>
-</li>
-<li>
-<p>Now do the same for the <a href="./others/fresh.sql.zip">fresh</a> database (you'll also need the fresh repository)</p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="company-stuff"><a class="header" href="#company-stuff">Company Stuff</a></h1>
 <ol>
 <li>
-<p><a href="https://pmtfresh-uat.primesupermarket.com/login.php">Seafood UAT</a></p>
+<p><a href="https://pmtseafood-uat.primesupermarket.com/login.php">Seafood (PMT) UAT</a></p>
 </li>
 <li>
-<p><a href="https://pmtseafood-uat.primesupermarket.com/login.php">Fresh UAT</a></p>
+<p><a href="https://pmtfresh-uat.primesupermarket.com/login.php">Fresh UAT</a></p>
 </li>
 <li>
 <p><code>UAT</code>: User acceptance testing: Testing system among users.</p>
@@ -613,10 +623,10 @@ localhost:8080/pmtweb-master/index.php
 <p><code>IPv4</code>: Uses 32-bit address: 2^32 of possible adresses.</p>
 </li>
 <li>
-<p><code>IPv6</code>: Uses 128-bit address: 2^64 possible adresses.</p>
+<p><code>IPv6</code>: Uses 128-bit address: 2^128 possible adresses.</p>
 </li>
 <li>
-<p><code>Prime Fish Farms</code>: 3 total: Pasir Ris, Kelong, Katam</p>
+<p><code>Fish Farms</code>: 3 total: Pasir Ris, Kelong, Katam</p>
 </li>
 <li>
 <p><code>WMS</code>: Warehouse Managment System.</p>
@@ -634,7 +644,7 @@ localhost:8080/pmtweb-master/index.php
 <p><code>Prime Rewards QR</code>: 3 Types: Member, Prime, Coupon QR.</p>
 </li>
 <li>
-<p><code>Prime Points</code>: 200 pts -&gt; $1. $20 -&gt; 1 stamp. Can only get 1 daily. Resets monthly. If have max scratches and you earn more, the extras will be ignored.</p>
+<p><code>Prime Points</code>: 200 pts -&gt; $1. $10 -&gt; 1 stamp / day. Resets monthly. If have max scratches and you earn more, the extras will be ignored.</p>
 </li>
 <li>
 <p><code>POS</code>: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.</p>
@@ -644,7 +654,7 @@ localhost:8080/pmtweb-master/index.php
 <h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
 <ol>
 <li><code>===</code> : compare if value is same + if the same data type.</li>
-<li><code>!==</code> : Yah.</li>
+<li><code>!==</code> : compare if value is NOT the same + if NOT the same data type.</li>
 </ol>
 <h2 id="superglobal-vairables"><a class="header" href="#superglobal-vairables">Superglobal Vairables</a></h2>
 <ol>
@@ -960,7 +970,7 @@ PRIMARY KEY (id)
 <p><code>?</code> / <code>:</code>: Use these placeholders inside a query string and replace them later.</p>
 </li>
 <li>
-<p>Sequence when send SQL:</p>
+<p>Basic sequence when sending SQL in PHP:</p>
 <ol>
 <li>Create <code>$sql</code> statement</li>
 <li>Prepare the <code>$sql</code> statement using <code>$link</code> to database</li>
@@ -970,7 +980,6 @@ PRIMARY KEY (id)
 <li>Do something with the result!</li>
 </ol>
 </li>
-<li></li>
 </ol>
 
                         </div>

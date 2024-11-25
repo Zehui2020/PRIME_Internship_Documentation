@@ -65,7 +65,7 @@
     SELECT * FROM users WHERE id = 2;
     ```
 
-1. To select data from multiple tables:
+1. To select data from multiple tables using primary / secondary keys:
     ```sql
     SELECT * FROM users INNER JOIN comments ON users.id = comments.users_id;
     /* Result: Shows all users who made comments */

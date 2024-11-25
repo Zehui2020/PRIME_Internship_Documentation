@@ -2,7 +2,7 @@
 
 ## Operators
 1. `===` : compare if value is same + if the same data type.
-1. `!==` : Yah.
+1. `!==` : compare if value is NOT the same + if NOT the same data type.
 
 ## Superglobal Vairables
 1. `$_POST`: Similar to get, but doesn't show result in url
@@ -253,12 +253,10 @@ $myCar = new Car("red", "Volvo");
 1. Query: To prevent SQL injection, don't just add what the user typed straight into a SQL statement.
 1. `?` / `:`: Use these placeholders inside a query string and replace them later. 
 
-1. Sequence when send SQL:
+1. Basic sequence when sending SQL in PHP:
     1. Create `$sql` statement
     1. Prepare the `$sql` statement using `$link` to database
     1. Bind any params
     1. Execute the statement
     1. Get result using `get_result()`
     1. Do something with the result!
-
-1. 

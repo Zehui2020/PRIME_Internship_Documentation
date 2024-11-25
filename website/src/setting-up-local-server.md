@@ -1,5 +1,5 @@
 # Setting up local server
-1. To set up Prime's `pmtweb` on your device's localhost, you'll have to make sure your PHP version in `xampp` is the same (for consistency) as `pmtweb's`. Prime's `pmtweb` uses `PHP 7.4` and the default download (as of `11/19/2024`) for `xampp` is `PHP 8.2.12`. 
+1. To set up Prime's `pmtweb` on your device's localhost, you'll have to make sure your PHP version in `xampp` is the same (for consistency) as `pmtweb`. Prime's `pmtweb` uses `PHP 7.4.33`.
 
 1. To check your php version, start up `mysql` and `Apache` in `xampp`. Open up VS code and open the `htdocs` folder in `xampp`. Create a file inside `htdocs` called `info.php` and type:
     ```php
@@ -10,8 +10,11 @@
     ![](./images/create-info.png)
 
 1. Now go to your web browser and type in the following. Do note that the url might differ based on your `folder structure` and localhost `port number` (it's 80 by default).
-    >localhost:8080/info.php
-
+    ```
+    // Link differs based on port number & filepath!
+    localhost/info.php
+    ```
+    
 1. You should see a page shown below. You can view your php version at the top.
 
     ![](./images/php-info.PNG)
@@ -48,7 +51,10 @@
     1. Make sure that this line is `uncommented`. If you see a `;` at the front of this line, remove it to uncomment.
 
 1. Now go back to `info.php`. If you see a `mysqli` section when you search for it, you're good to go.
-    >localhost:8080/info.php
+    ```    
+    // Link differs based on port number & filepath!
+    localhost/info.php
+    ```
 
     ![](./images/mysqli-section.png)
 
@@ -71,17 +77,17 @@
 
 1. Check `info.php` again to confirm the mysqli section is there.
 
-1. Once this is done, make sure you have access to the `pmtweb` repository (if you don't, ask your supervisor). Download it as zip (or use git to clone it, whichever is easier for you). Place the project into the `htdocs` folder in `xampp`.
+1. Once this is done, make sure you have access to the `pmtweb` repository (if you don't, ask your supervisor). Git clone the project into the `htdocs` folder in `xampp`.
 
 1. Now, you'll have to create the database for `pmtweb`. Go to `phpMyAdmin` and create a new database as shown below. Make sure the database uses `utf8_general_ci`!
     ```
-    // Link to phpMyAdmin (differs based on port number)
-    localhost:8080/phpMyAdmin
+    // Link differs based on port number & filepath!
+    localhost/phpMyAdmin
     ```
 
     ![](./images/create-pmtweb-database.png)
 
-1. Click on the newly created `pmtweb` database and go to the `import` tab above. Download [this](./others/pmtweb.sql.zip) zip file and import it. Use default settings for the other options and click `Import` at the bottom. After a while, the database should be ready to go.
+1. Click on the newly created `pmtweb` database and go to the `import` tab above. Download [this](./documentation/others/pmtweb.sql.zip) zip file and import it. Use default settings for the other options and click `Import` at the bottom. After a while, the database should be ready to go.
 
     ![](./images/import-db.png)
 
@@ -95,10 +101,8 @@
 
     ![](./images/create-user.png)
 
-1. If you see no errors, type the url shown below to access `pmtweb` on the web!
+1. Once the user is created, type the url shown below to access `pmtweb` on the web!
     ```
-    // Link to pmtweb (differs based on port number)
-    localhost:8080/pmtweb-master/index.php
+    // Link differs based on port number & filepath!
+    localhost/pmtweb/index.php
     ```
-
-1. Now do the same for the [fresh](./others/fresh.sql.zip) database (you'll also need the fresh repository)

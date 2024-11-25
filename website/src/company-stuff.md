@@ -1,6 +1,6 @@
 # Company Stuff
-1. [Seafood UAT](https://pmtfresh-uat.primesupermarket.com/login.php)
-1. [Fresh UAT](https://pmtseafood-uat.primesupermarket.com/login.php)
+1. [Seafood (PMT) UAT](https://pmtseafood-uat.primesupermarket.com/login.php)
+1. [Fresh UAT](https://pmtfresh-uat.primesupermarket.com/login.php)
 1. `UAT`: User acceptance testing: Testing system among users.
 1. `SIT`: System Integration Testing: Testing system among devs.
 1. `PMT`: Prime Mart Trading.
@@ -41,13 +41,13 @@
 1. `DNS`: Domain Name System. 
 1. `IP Address`: Internet Protocol. A unique number that gets linked to all online activity you do
 1. `IPv4`: Uses 32-bit address: 2^32 of possible adresses.
-1. `IPv6`: Uses 128-bit address: 2^64 possible adresses.
-1. `Prime Fish Farms`: 3 total: Pasir Ris, Kelong, Katam
+1. `IPv6`: Uses 128-bit address: 2^128 possible adresses.
+1. `Fish Farms`: 3 total: Pasir Ris, Kelong, Katam
 1. `WMS`: Warehouse Managment System.
 1. `IPS Project`: WMS/PGI. Combine every ordering into 1 system.
 1. `JLPI`: Old packeting system.
 1. `SOP`: Standard Operating Procedures.
 
 1. `Prime Rewards QR`: 3 Types: Member, Prime, Coupon QR.
-1. `Prime Points`: 200 pts -> $1. $20 -> 1 stamp. Can only get 1 daily. Resets monthly. If have max scratches and you earn more, the extras will be ignored.
+1. `Prime Points`: 200 pts -> $1. $10 -> 1 stamp / day. Resets monthly. If have max scratches and you earn more, the extras will be ignored.
 1. `POS`: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.
