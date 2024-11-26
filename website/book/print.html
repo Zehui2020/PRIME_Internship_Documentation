@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li><li class="chapter-item "><a href="framework-notes.html">Framework Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -643,6 +643,9 @@ localhost/pmtweb/index.php
 <p><code>IPS Project</code>: WMS/PGI. Combine every ordering into 1 system.</p>
 </li>
 <li>
+<p><code>PGI</code>: Other than fresh &amp; pmt sefood are doing (penicils, utensils, dry food, etc.)</p>
+</li>
+<li>
 <p><code>JLPI</code>: Old packeting system.</p>
 </li>
 <li>
@@ -656,6 +659,18 @@ localhost/pmtweb/index.php
 </li>
 <li>
 <p><code>POS</code>: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.</p>
+</li>
+<li>
+<p><code>Super Admin, Admin, Buyer, Supplier</code>: All 3 roles in merchandising portal.</p>
+</li>
+<li>
+<p><code>MDHQ</code>: Controlling pricing of products.</p>
+</li>
+<li>
+<p><code>CEUD</code>: Create, Update, Delete, etc.</p>
+</li>
+<li>
+<p><code>CP</code>: Cost Price</p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
@@ -986,6 +1001,113 @@ PRIMARY KEY (id)
 <li>Execute the statement</li>
 <li>Get result using <code>get_result()</code></li>
 <li>Do something with the result!</li>
+</ol>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="framework-notes"><a class="header" href="#framework-notes">Framework Notes</a></h1>
+<ol>
+<li>
+<p>To export to excel, the pmtseafood portal uses a few third-party files installed through <code>composer</code>. However, due to the version being an older one, with multiple third-party files, it's very hard to accuratley install them through <code>composer</code>. Please ask your supervisor to download the <code>vendor</code> files on their side and install them manually.</p>
+</li>
+<li>
+<p>We'll be looking at the <code>picking-list.php</code> as an example:</p>
+<pre><code class="language-html">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;button type="submit" id="export-fulfilled" name="export-fulfilled" onclick="exportFulfilled()" class="btn mr-1 rounded-0 btn-dark border"&gt;Export Fulfilled&lt;/button&gt;
+</code></pre>
+<ol>
+<li>
+<p>Using the <code>onclick</code> tag, we can call a function when the button is clicked. The function is as follows:</p>
+<pre><code class="language-php">function exportFulfilled() 
+{
+    var uid = $('#user_id').find(":selected").val();
+    var pid = $('#product_id').find(":selected").val();
+    var url = "excel.php?action=picking-list-fulfilled&amp;user_id="+uid+"&amp;product_id="+pid+"&amp;date-filter="+$("#datepicker").val();
+    window.open(url, '_blank').focus();
+}
+</code></pre>
+<ol>
+<li>We can hardcode a url that has the <code>action</code> tag to trigger a <code>$_POST</code> request of <code>picking-list-fulfilled</code>, along with other vairables like <code>uid</code>, <code>pid</code>, etc.</li>
+<li>This is to load the <code>excel.php</code> page using <code>window.open(url, '_blank').focus();</code> to open it in a new tab, thus calling the code inside <code>excel.php</code>.</li>
+</ol>
+</li>
+<li>
+<p>Inside <code>excel.php</code>, we'll look for the <code>picking-list-fulfilled</code> action and respond accordingly:</p>
+<ol>
+<li>Get all the required data using an SQL query.</li>
+<li>Call the <code>findPO</code> function to get an <code>associative array</code> of <code>product orders</code> using the data we got from the SQL query.</li>
+<li>We then store the required data into <code>associative array</code> (e.g. customer usernames, product PLUs, UOMs, etc.)</li>
+<li>Then call the function <code>processPickingListFulfilledExcel</code> to generate the excel file.</li>
+</ol>
+<pre><code class="language-php">else if($action == "picking-list-fulfilled") 
+{
+    ...
+    $orders = findPO($link, $filterUserID, $filterProductID, $dateFilter);
+    ...
+    processPickingListFulfilledExcel($data, $customerList, $dateFilter);
+}
+</code></pre>
+</li>
+<li>
+<p>Inside the <code>processPickingListFulfilledExcel</code> function, we:</p>
+<ol>
+<li>
+<p>Instantiate a new <code>Spreadsheet</code> object and get the active sheet.</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet-&gt;getActiveSheet();
+    ...
+}
+</code></pre>
+</li>
+<li>
+<p>We then define a few styles on how the data should be displayed in the excel sheet (e.g. font size, alignment, etc.).</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    ...
+    $boldCenterStyle = array(
+        'font' =&gt; [
+            'bold' =&gt; true,
+        ],
+        'alignment' =&gt; array(
+            'horizontal' =&gt; \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+        )
+    );
+    ...
+}
+</code></pre>
+</li>
+<li>
+<p>To apply the style &amp; setting the values in excel, we'll use excel's coordinate system (A1, E3, F6, etc.):</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    ...
+    $sheet-&gt;setCellValue('A3', 'No');
+    $sheet-&gt;getStyle("A3")-&gt;applyFromArray($styleArray);
+    ...
+}
+</code></pre>
+<ol>
+<li>This will mean the value of cell <code>A3</code> in the excel sheet will say <code>No</code> and will take on the style of <code>$styleArray</code>.</li>
+</ol>
+</li>
+<li>
+<p>After all the values in the excel sheet is set, the <code>filename</code> is set and automatically downloaded using this:</p>
+<pre><code class="language-php">$fileName = 'Picking_List_Fulfilled' . '_' . date("dmY", strtotime($date)).".xlsx";
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="'.$fileName.'"');
+header('Cache-Control: max-age=0');
+header('Cache-Control: max-age=1');
+header('Cache-Control: cache, must-revalidate');
+header('Pragma: public');
+
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer-&gt;save('php://output');
+</code></pre>
+</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>

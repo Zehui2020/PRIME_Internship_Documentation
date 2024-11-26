@@ -45,9 +45,15 @@
 1. `Fish Farms`: 3 total: Pasir Ris, Kelong, Katam
 1. `WMS`: Warehouse Managment System.
 1. `IPS Project`: WMS/PGI. Combine every ordering into 1 system.
+1. `PGI`: Other than fresh & pmt sefood are doing (penicils, utensils, dry food, etc.)
 1. `JLPI`: Old packeting system.
 1. `SOP`: Standard Operating Procedures.
 
 1. `Prime Rewards QR`: 3 Types: Member, Prime, Coupon QR.
 1. `Prime Points`: 200 pts -> $1. $10 -> 1 stamp / day. Resets monthly. If have max scratches and you earn more, the extras will be ignored.
 1. `POS`: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.
+
+1. `Super Admin, Admin, Buyer, Supplier`: All 3 roles in merchandising portal.
+1. `MDHQ`: Controlling pricing of products.
+1. `CEUD`: Create, Update, Delete, etc.
+1. `CP`: Cost Price

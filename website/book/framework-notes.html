@@ -3,7 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Company Stuff - PHP_Documentation</title>
+    <title>Framework Notes - PHP_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item expanded "><a href="company-stuff.html" class="active">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li><li class="chapter-item "><a href="framework-notes.html">Framework Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li><li class="chapter-item expanded "><a href="framework-notes.html" class="active">Framework Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -175,168 +175,111 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="company-stuff"><a class="header" href="#company-stuff">Company Stuff</a></h1>
+                            <h1 id="framework-notes"><a class="header" href="#framework-notes">Framework Notes</a></h1>
 <ol>
 <li>
-<p><a href="https://pmtseafood-uat.primesupermarket.com/login.php">Seafood (PMT) UAT</a></p>
+<p>To export to excel, the pmtseafood portal uses a few third-party files installed through <code>composer</code>. However, due to the version being an older one, with multiple third-party files, it's very hard to accuratley install them through <code>composer</code>. Please ask your supervisor to download the <code>vendor</code> files on their side and install them manually.</p>
 </li>
 <li>
-<p><a href="https://pmtfresh-uat.primesupermarket.com/login.php">Fresh UAT</a></p>
-</li>
-<li>
-<p><code>UAT</code>: User acceptance testing: Testing system among users.</p>
-</li>
-<li>
-<p><code>SIT</code>: System Integration Testing: Testing system among devs.</p>
-</li>
-<li>
-<p><code>PMT</code>: Prime Mart Trading.</p>
-</li>
-<li>
-<p><code>MSOH</code>: Min stock at hand.</p>
-</li>
-<li>
-<p><code>PLU</code>: Price Lookup (barcode, etc.)</p>
-</li>
-<li>
-<p><code>Eleap</code>: Weighing system, weigh food, get barcode.</p>
-</li>
-<li>
-<p><code>IBT</code>: Price Prime sells to supermarkets.</p>
-</li>
-<li>
-<p><code>RSP</code>: Recommended Selling Price.</p>
-</li>
-<li>
-<p><code>UOM</code>: Unit Of Measurement</p>
-</li>
-<li>
-<p><code>Sage</code>: Database for fresh goods like fruits &amp; vegs</p>
-</li>
-<li>
-<p><code>Navision</code>: Database for other goods (like pencils, etc.)</p>
-</li>
-<li>
-<p><code>MAHOTA Food</code>, <code>Prime Online</code>, <code>Prime Prime</code>: Not related to Prime. Mahota, Prime Online is e-commerce.</p>
-</li>
-<li>
-<p><code>Sync</code>: Since the 3 companys above are ordering from Prime as well, need to sync with other companies. Prime Online is for corperate customers, Prime Prime for normal consumers.</p>
-</li>
-<li>
-<p><code>MOQ</code>: Minimum Order Quantity.</p>
-</li>
-<li>
-<p><code>PO</code> / <code>PU</code>: <code>PO</code> is list of things buyers bought from outside vendors / <code>PU</code> is list of things prime sell to supermarket.</p>
-</li>
-<li>
-<p><code>Special Pricing</code>: Top priority for pricing. For giving discounts to certain customers.</p>
-</li>
-<li>
-<p><code>DO</code>: Delivery Order generated when customer recieves the product.</p>
-</li>
-<li>
-<p><code>12:00 - 14:00 &amp; 16:00 - 17:00</code>: Same day delivery.</p>
-</li>
-<li>
-<p><code>00:00 - 10:00 &amp; 12:00 - 14:00 &amp; 16:00 - 17:00</code>: Next day delivery.</p>
-</li>
-<li>
-<p><code>Add on</code> &amp; <code>Declaring stock balance</code> &amp; <code>Force allocation</code>: Ordering for seafood.</p>
-</li>
-<li>
-<p><code>Normal Ordering</code> &amp; <code>Standing Order</code> &amp; <code>Allocation Order</code>: Ordering for fresh.</p>
+<p>We'll be looking at the <code>picking-list.php</code> as an example:</p>
+<pre><code class="language-html">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;button type="submit" id="export-fulfilled" name="export-fulfilled" onclick="exportFulfilled()" class="btn mr-1 rounded-0 btn-dark border"&gt;Export Fulfilled&lt;/button&gt;
+</code></pre>
 <ol>
-<li><code>Normal Order</code> is similar to <code>Add On</code>, but diff cuz outlet has to select individually and "add to cart".</li>
-<li>Buyer can <code>allocate</code> to Outlet. Outlet can reject allocation order.</li>
-<li><code>Standing Order</code> can be set based on customer behaviour, e.g. every monday, etc.</li>
+<li>
+<p>Using the <code>onclick</code> tag, we can call a function when the button is clicked. The function is as follows:</p>
+<pre><code class="language-php">function exportFulfilled() 
+{
+    var uid = $('#user_id').find(":selected").val();
+    var pid = $('#product_id').find(":selected").val();
+    var url = "excel.php?action=picking-list-fulfilled&amp;user_id="+uid+"&amp;product_id="+pid+"&amp;date-filter="+$("#datepicker").val();
+    window.open(url, '_blank').focus();
+}
+</code></pre>
+<ol>
+<li>We can hardcode a url that has the <code>action</code> tag to trigger a <code>$_POST</code> request of <code>picking-list-fulfilled</code>, along with other vairables like <code>uid</code>, <code>pid</code>, etc.</li>
+<li>This is to load the <code>excel.php</code> page using <code>window.open(url, '_blank').focus();</code> to open it in a new tab, thus calling the code inside <code>excel.php</code>.</li>
 </ol>
 </li>
 <li>
-<p><code>Block Normal Order</code>: If don't have stock, can block the order so customer don't order the product.</p>
+<p>Inside <code>excel.php</code>, we'll look for the <code>picking-list-fulfilled</code> action and respond accordingly:</p>
+<ol>
+<li>Get all the required data using an SQL query.</li>
+<li>Call the <code>findPO</code> function to get an <code>associative array</code> of <code>product orders</code> using the data we got from the SQL query.</li>
+<li>We then store the required data into <code>associative array</code> (e.g. customer usernames, product PLUs, UOMs, etc.)</li>
+<li>Then call the function <code>processPickingListFulfilledExcel</code> to generate the excel file.</li>
+</ol>
+<pre><code class="language-php">else if($action == "picking-list-fulfilled") 
+{
+    ...
+    $orders = findPO($link, $filterUserID, $filterProductID, $dateFilter);
+    ...
+    processPickingListFulfilledExcel($data, $customerList, $dateFilter);
+}
+</code></pre>
 </li>
 <li>
-<p><code>Cutoff Time</code>: Did by intern. Can set num of days to block order. During block days, cannot order. Used for standing order.</p>
+<p>Inside the <code>processPickingListFulfilledExcel</code> function, we:</p>
+<ol>
+<li>
+<p>Instantiate a new <code>Spreadsheet</code> object and get the active sheet.</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet-&gt;getActiveSheet();
+    ...
+}
+</code></pre>
 </li>
 <li>
-<p>Must set delivery time for customer in pmt fresh when creating it.</p>
+<p>We then define a few styles on how the data should be displayed in the excel sheet (e.g. font size, alignment, etc.).</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    ...
+    $boldCenterStyle = array(
+        'font' =&gt; [
+            'bold' =&gt; true,
+        ],
+        'alignment' =&gt; array(
+            'horizontal' =&gt; \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+        )
+    );
+    ...
+}
+</code></pre>
 </li>
 <li>
-<p><code>Account</code>: Knows how much PMT buys from Supermarket (IBT)</p>
+<p>To apply the style &amp; setting the values in excel, we'll use excel's coordinate system (A1, E3, F6, etc.):</p>
+<pre><code class="language-php">function processPickingListFulfilledExcel($data, $customerList, $date) 
+{
+    ...
+    $sheet-&gt;setCellValue('A3', 'No');
+    $sheet-&gt;getStyle("A3")-&gt;applyFromArray($styleArray);
+    ...
+}
+</code></pre>
+<ol>
+<li>This will mean the value of cell <code>A3</code> in the excel sheet will say <code>No</code> and will take on the style of <code>$styleArray</code>.</li>
+</ol>
 </li>
 <li>
-<p><code>PSM Account</code>: Can't know how much PMT buys from Supermarket (IBT)</p>
+<p>After all the values in the excel sheet is set, the <code>filename</code> is set and automatically downloaded using this:</p>
+<pre><code class="language-php">$fileName = 'Picking_List_Fulfilled' . '_' . date("dmY", strtotime($date)).".xlsx";
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="'.$fileName.'"');
+header('Cache-Control: max-age=0');
+header('Cache-Control: max-age=1');
+header('Cache-Control: cache, must-revalidate');
+header('Pragma: public');
+
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer-&gt;save('php://output');
+</code></pre>
 </li>
-<li>
-<p><code>Con job</code>: Setup certain time, certain code to be ran.</p>
+</ol>
 </li>
-<li>
-<p><code>CMS</code>: Content Managment System.</p>
-</li>
-<li>
-<p><code>SSL</code>: Secure Sockets Layer. Encrypts data btw server &amp; website.</p>
-</li>
-<li>
-<p><code>http</code>: port num 80 defualt. Not secure, outsider can listen in.</p>
-</li>
-<li>
-<p><code>https</code>: Port num 443 default. More secure, outsider cannot listen in.</p>
-</li>
-<li>
-<p><code>middleman attack</code>: Same website, diff URL.</p>
-</li>
-<li>
-<p><code>Intranet</code>: Any new from HR post onto notice board. Using Jun Lao.</p>
-</li>
-<li>
-<p><code>DNS</code>: Domain Name System.</p>
-</li>
-<li>
-<p><code>IP Address</code>: Internet Protocol. A unique number that gets linked to all online activity you do</p>
-</li>
-<li>
-<p><code>IPv4</code>: Uses 32-bit address: 2^32 of possible adresses.</p>
-</li>
-<li>
-<p><code>IPv6</code>: Uses 128-bit address: 2^128 possible adresses.</p>
-</li>
-<li>
-<p><code>Fish Farms</code>: 3 total: Pasir Ris, Kelong, Katam</p>
-</li>
-<li>
-<p><code>WMS</code>: Warehouse Managment System.</p>
-</li>
-<li>
-<p><code>IPS Project</code>: WMS/PGI. Combine every ordering into 1 system.</p>
-</li>
-<li>
-<p><code>PGI</code>: Other than fresh &amp; pmt sefood are doing (penicils, utensils, dry food, etc.)</p>
-</li>
-<li>
-<p><code>JLPI</code>: Old packeting system.</p>
-</li>
-<li>
-<p><code>SOP</code>: Standard Operating Procedures.</p>
-</li>
-<li>
-<p><code>Prime Rewards QR</code>: 3 Types: Member, Prime, Coupon QR.</p>
-</li>
-<li>
-<p><code>Prime Points</code>: 200 pts -&gt; $1. $10 -&gt; 1 stamp / day. Resets monthly. If have max scratches and you earn more, the extras will be ignored.</p>
-</li>
-<li>
-<p><code>POS</code>: Point Of Sale : a place where something is sold to the public, or the place where someone pays for something.</p>
-</li>
-<li>
-<p><code>Super Admin, Admin, Buyer, Supplier</code>: All 3 roles in merchandising portal.</p>
-</li>
-<li>
-<p><code>MDHQ</code>: Controlling pricing of products.</p>
-</li>
-<li>
-<p><code>CEUD</code>: Create, Update, Delete, etc.</p>
-</li>
-<li>
-<p><code>CP</code>: Cost Price</p>
+</ol>
 </li>
 </ol>
 
@@ -348,13 +291,10 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        <a rel="prev" href="setting-up-local-server.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <a rel="prev" href="notes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                             <i class="fa fa-angle-left"></i>
                         </a>
 
-                        <a rel="next prefetch" href="notes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -362,13 +302,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="prev" href="setting-up-local-server.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <a rel="prev" href="notes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                     <i class="fa fa-angle-left"></i>
                 </a>
 
-                <a rel="next prefetch" href="notes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                    <i class="fa fa-angle-right"></i>
-                </a>
             </nav>
 
         </div>
