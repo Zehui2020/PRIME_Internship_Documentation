@@ -595,6 +595,12 @@ localhost/pmtweb/index.php
 <p>Must set delivery time for customer in pmt fresh when creating it.</p>
 </li>
 <li>
+<p><code>CEUD</code>: Create, Update, Delete, etc.</p>
+</li>
+<li>
+<p><code>CP</code>: Cost Price</p>
+</li>
+<li>
 <p><code>Account</code>: Knows how much PMT buys from Supermarket (IBT)</p>
 </li>
 <li>
@@ -665,12 +671,6 @@ localhost/pmtweb/index.php
 </li>
 <li>
 <p><code>MDHQ</code>: Controlling pricing of products.</p>
-</li>
-<li>
-<p><code>CEUD</code>: Create, Update, Delete, etc.</p>
-</li>
-<li>
-<p><code>CP</code>: Cost Price</p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
@@ -1002,6 +1002,25 @@ PRIMARY KEY (id)
 <li>Get result using <code>get_result()</code></li>
 <li>Do something with the result!</li>
 </ol>
+</li>
+</ol>
+<h2 id="git-bash"><a class="header" href="#git-bash">Git Bash</a></h2>
+<ol>
+<li>
+<p>Delete branch on remote:</p>
+<pre><code>git push &lt;remote_name&gt; --delete &lt;branch_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Merge main into branch:</p>
+<pre><code>git pull
+git merge origin
+</code></pre>
+</li>
+<li>
+<p>Undo changes in branch:</p>
+<pre><code>git checkout -- &lt;filename&gt;
+</code></pre>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="framework-notes"><a class="header" href="#framework-notes">Framework Notes</a></h1>

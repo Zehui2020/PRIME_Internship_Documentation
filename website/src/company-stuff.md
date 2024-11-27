@@ -29,6 +29,9 @@
 1. `Cutoff Time`: Did by intern. Can set num of days to block order. During block days, cannot order. Used for standing order.
 1. Must set delivery time for customer in pmt fresh when creating it.
 
+1. `CEUD`: Create, Update, Delete, etc.
+1. `CP`: Cost Price
+
 1. `Account`: Knows how much PMT buys from Supermarket (IBT)
 1. `PSM Account`: Can't know how much PMT buys from Supermarket (IBT)
 1. `Con job`: Setup certain time, certain code to be ran.
@@ -55,5 +58,3 @@
 
 1. `Super Admin, Admin, Buyer, Supplier`: All 3 roles in merchandising portal.
 1. `MDHQ`: Controlling pricing of products.
-1. `CEUD`: Create, Update, Delete, etc.
-1. `CP`: Cost Price

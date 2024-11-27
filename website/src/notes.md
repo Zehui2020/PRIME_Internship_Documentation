@@ -260,3 +260,19 @@ $myCar = new Car("red", "Volvo");
     1. Execute the statement
     1. Get result using `get_result()`
     1. Do something with the result!
+
+## Git Bash
+1. Delete branch on remote:
+    ```
+    git push <remote_name> --delete <branch_name>
+    ```
+1. Merge main into branch:
+    ```
+    git pull
+    git merge origin
+    ```
+
+1. Undo changes in branch:
+    ```
+    git checkout -- <filename>
+    ```
