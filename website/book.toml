@@ -3,7 +3,7 @@ authors = ["Zehui2020"]
 language = "en"
 multilingual = false
 src = "src"
-title = "PHP_Documentation"
+title = "Prime_Internship_Documentation"
 
 [output.html]
 no-section-label = true

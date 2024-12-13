@@ -3,7 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>PHP_Documentation</title>
+    <title>Prime_Internship_Documentation</title>
     <meta name="robots" content="noindex">
 
 
@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li><li class="chapter-item "><a href="framework-notes.html">Framework Notes</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/setup-xampp.html">Setup XAMPP</a></li><li class="chapter-item "><a href="nested/setup-php.html">Setup PHP</a></li><li class="chapter-item "><a href="nested/setup-database.html">Setup Database</a></li></ol></li><li class="chapter-item "><a href="setting-up-local-server.html">Install pmtweb On Local Host</a></li><li class="chapter-item "><a href="company-stuff.html">Company Stuff</a></li><li class="chapter-item "><a href="notes.html">Notes</a></li><li class="chapter-item "><a href="framework-notes.html">Framework Notes</a></li><li class="chapter-item "><a href="flutter-notes.html">Flutter Notes</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -143,7 +143,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">PHP_Documentation</h1>
+                    <h1 class="menu-title">Prime_Internship_Documentation</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -1130,6 +1130,440 @@ $writer-&gt;save('php://output');
 </ol>
 </li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flutter-notes"><a class="header" href="#flutter-notes">Flutter Notes</a></h1>
+<h2 id="what-is-flutter"><a class="header" href="#what-is-flutter">What Is Flutter?</a></h2>
+<ol>
+<li>
+<p>Flutter is an an open-source UI framework developed by <code>Google</code> to build apps for <code>mobile</code> (BOTH <code>IOS</code> &amp; <code>Android</code>), <code>web</code> &amp; <code>desktop</code> using a <strong>SINGLE</strong> codebase. Primarily written in <code>dart</code>.</p>
+</li>
+<li>
+<p>Who Uses Flutter?</p>
+<ol>
+<li>Google: Google Pay, Google Ads, and Stadia.</li>
+<li>Alibaba: Used for e-commerce apps.</li>
+<li>BMW: My BMW app.</li>
+</ol>
+</li>
+<li>
+<p>Key Features of Flutter:</p>
+<ol>
+<li>
+<p><strong>Single Codebase for Multiple Platforms</strong></p>
+<ol>
+<li>Write one codebase, and deploy to iOS, Android, web, and desktop (Windows, macOS, Linux).</li>
+<li>Reduces development time and maintenance effort.</li>
+</ol>
+</li>
+<li>
+<p><strong>Hot Reload &amp; Hot Restart</strong></p>
+<ol>
+<li>Quickly view the results of code changes without restarting the app.</li>
+<li>Speeds up development and debugging.</li>
+</ol>
+</li>
+<li>
+<p><strong>Extensive Amount of Prebuilt Widgets</strong></p>
+<ol>
+<li>Comes with a wide range of customizable widgets (e.g. date picker, input fields, etc.)</li>
+<li>Speeds up development and debugging.</li>
+</ol>
+</li>
+<li>
+<p><strong>PERFORMANCE</strong></p>
+<ol>
+<li>Flutter apps are natively compiled, ensuring high performance.</li>
+<li>Avoids reliance on web view or platform-specific widgets, using its own rendering engine.</li>
+</ol>
+</li>
+<li>
+<p><strong>Control as a developer</strong></p>
+<ol>
+<li>Full control over every pixel.</li>
+</ol>
+</li>
+<li>
+<p><strong>IT'S FREE!</strong></p>
+<ol>
+<li>Free to use, with an active community providing packages, plugins, and support.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="basic-knowledge"><a class="header" href="#basic-knowledge">Basic Knowledge</a></h2>
+<h2 id="flutter-development-in-anroid-studio"><a class="header" href="#flutter-development-in-anroid-studio">Flutter Development In Anroid Studio</a></h2>
+<h3 id="widgets"><a class="header" href="#widgets">Widgets</a></h3>
+<ol>
+<li>
+<p>Flutter uses <code>widgets</code> to display &amp; interact with UI elements. There are 2 types of widgets in flutter:</p>
+<ol>
+<li><code>Stateless</code> Widgets</li>
+<li><code>Stateful</code> Widgets</li>
+</ol>
+</li>
+<li>
+<p><code>Stateless</code> Widgets</p>
+<ol>
+<li>
+<p>Does not store any internal state that changes over time. (Variables, Widgets, etc.)</p>
+</li>
+<li>
+<p>Only rebuilds when parent widget changes.</p>
+</li>
+<li>
+<p>Lightweight &amp; Effecient. Better performance.</p>
+</li>
+<li>
+<p>Think of it as <code>"static"</code> widgets that are only built ONCE. (e.g a splash screen that displays only an image when app launches)</p>
+<pre><code class="language-dart">class MyStatelessWidget extends StatelessWidget {
+    final String text;
+
+    MyStatelessWidget({required this.text});
+    
+    @override
+    Widget build(BuildContext context) {
+        return Text(
+            text,
+            style: TextStyle(fontSize: 20),
+        ); // Text
+    }
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><code>Stateful</code> Widgets</p>
+<ol>
+<li>
+<p>Requires mutable state. It maintains a <code>State</code> object that holds data that can change over time and triggers the UI to rebuild when the state changes.</p>
+</li>
+<li>
+<p>Can update its appearance based on internal or external changes (e.g., user interaction, API responses).</p>
+</li>
+<li>
+<p>Maintains a separate State class where the mutable state and logic reside.</p>
+</li>
+<li>
+<p>Can trigger rebuilds using setState to update the UI.</p>
+<pre><code class="language-dart">class MyStatefulWidget extends StatefulWidget {
+    @override
+    _MyStatefulWidgetState createState() =&gt; _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
+    int counter = 0;
+
+    void incrementCounter() {
+        setState((){counter++;});
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return Column(
+            children: [
+                Text('Counter: $counter', style: TextStyle(fontSize: 20)),
+                ElevatedButton(
+                    onPressed: incrementCounter,
+                    child: Text('Increment'),
+                ), // Elevated Button
+            ],
+        ); // Column
+    }
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="commonly-used-widgets"><a class="header" href="#commonly-used-widgets">Commonly Used Widgets</a></h3>
+<ol>
+<li>
+<p><strong>Material App</strong></p>
+<ol>
+<li>
+<p>MaterialApp is a <code>core widget</code> that provides the foundation for creating apps using Material Design.</p>
+</li>
+<li>
+<p>Manages navigation between different screens using named <code>routes</code> or <code>Navigator</code>.</p>
+</li>
+<li>
+<p>Defines multiple languages with the <code>localizationsDelegates</code> and <code>supportedLocales</code> properties.</p>
+</li>
+<li>
+<p>Some commonly used properties of <code>Material App</code>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td>home</td><td>The default screen of the app (usually the first widget to display).</td></tr>
+<tr><td>theme</td><td>Defines the app's default light theme (colors, fonts, etc.).</td></tr>
+<tr><td>darkTheme</td><td>Defines the app's default dark theme.</td></tr>
+<tr><td>routes</td><td>A map of route names and corresponding widgets for navigation.</td></tr>
+<tr><td>onGenerateRoute</td><td>A callback to dynamically generate routes when the app navigates.</td></tr>
+<tr><td>locale</td><td>Sets the app's default locale for localization.</td></tr>
+<tr><td>debugShowCheckedModeBanner</td><td>Shows or hides the debug banner in the top-right corner.</td></tr>
+</tbody></table>
+</div></li>
+</ol>
+</li>
+<li>
+<p><strong>Scaffold</strong></p>
+<ol>
+<li>
+<p>Scaffold widget serves as a framework for implementing <code>Material Design</code> layouts.</p>
+</li>
+<li>
+<p>Offers commonly used visual elements and functionalities out-of-the-box. (e.g. <code>App Bar</code>, <code>Bottom Navigation Bar</code>, etc.)</p>
+</li>
+<li>
+<p>It saves developers from manually building basic UI components, providing consistency and convenience.</p>
+</li>
+<li>
+<p>Some commonly used properties of <code>Scaffold</code>:</p>
+</li>
+</ol>
+<div class="table-wrapper"><table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td>appBar</td><td>Adds an AppBar widget at the top of the screen.</td></tr>
+<tr><td>body</td><td>The primary content of the screen.</td></tr>
+<tr><td>floatingActionButton</td><td>A button for the primary action of the screen.</td></tr>
+<tr><td>drawer</td><td>A side menu that slides in from the left.</td></tr>
+<tr><td>bottomNavigationBar</td><td>A bar at the bottom for navigation.</td></tr>
+<tr><td>backgroundColor</td><td>Sets the background color of the scaffold.</td></tr>
+<tr><td>resizeToAvoidBottomInset</td><td>Determines if the body resizes when the keyboard appears.</td></tr>
+</tbody></table>
+</div></li>
+<li>
+<p><strong>Padding</strong></p>
+<ol>
+<li>Adds space inside widget boundaries</li>
+<li>Can specify padding for all sides or individually for top, bottom, left, and right.
+<pre><code class="language-dart">Padding(
+    padding: EdgeInsets.all(16.0), // 16 pixels of padding on all sides
+    child: Text('Hello, Flutter!'),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Center</strong></p>
+<ol>
+<li>Takes a single child and positions it in the middle of the parent.
+<pre><code class="language-dart">Center(
+    child: Text('Hello, Flutter!'),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Align</strong></p>
+<ol>
+<li>Takes a single child and aligns it in both <code>Main &amp; Cross Axis</code>.
+<pre><code class="language-dart">Center(
+    alignment: Alignment.centerLeft,
+    child: Text('Hello, Flutter!'),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>SizedBox</strong></p>
+<ol>
+<li>Create a box with specific dimensions. Often used for spacing, aligning, or constraining child widgets.
+<pre><code class="language-dart">SizedBox(height: 20.0) // Adds vertical space of 20 pixels.
+
+// Creates an ElevatedButton with dimmensions 100px x 50px
+SizedBox(
+    width: 100,
+    height: 50,
+    child: ElevatedButton(
+        onPressed: () {},
+        child: Text('Click Me'),
+    ),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Column</strong></p>
+<ol>
+<li>
+<p>The Column widget arranges its children in a vertical direction, one below the other.</p>
+<div class="table-wrapper"><table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td>children</td><td>A list of widgets to be arranged vertically in the column.</td></tr>
+<tr><td>mainAxisAlignment</td><td>Defines how the children are aligned along the main axis (vertical).</td></tr>
+<tr><td>crossAxisAlignment</td><td>Defines how the children are aligned along the main axis (horizontal).</td></tr>
+</tbody></table>
+</div></li>
+<li>
+<p>Example:</p>
+<pre><code class="language-dart">Column(
+    children: [
+        Text('Item 1'),
+        Text('Item 2'),
+        Text('Item 3'),
+    ],
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Row</strong></p>
+<ol>
+<li>
+<p>The Row widget arranges its children in a horizontal direction, side by side.</p>
+<div class="table-wrapper"><table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td>children</td><td>A list of widgets to be arranged vertically in the column.</td></tr>
+<tr><td>mainAxisAlignment</td><td>Defines how the children are aligned along the main axis (vertical).</td></tr>
+<tr><td>crossAxisAlignment</td><td>Controls whether the column should occupy all available vertical space or only as much space as its children need.</td></tr>
+</tbody></table>
+</div></li>
+<li>
+<p>Example:</p>
+<pre><code class="language-dart">Row(
+    children: [
+        Text('Item 1'),
+        Text('Item 2'),
+        Text('Item 3'),
+    ],
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>SingleChildScrollView</strong></p>
+<ol>
+<li>
+<p>Allows the user to scroll through the content vertically or horizontally.</p>
+</li>
+<li>
+<p>Only one child widget can be wrapped inside it.</p>
+</li>
+<li>
+<p>Useful for layouts that need to adapt to varying screen sizes or content lengths.</p>
+</li>
+<li>
+<p><code>NOTE</code>: <code>SingleChildScrollView</code> should not be used for lists with many items; use <code>ListView</code> instead for optimized performance.</p>
+<pre><code class="language-dart">SingleChildScrollView(
+    child: Column(
+        children: [
+            for (int i = 0; i &lt; 50; i++) Text('Item $i'),
+        ],
+    ),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>TextButton</strong></p>
+<ol>
+<li>
+<p>Button that displays text and handle user interactions.</p>
+</li>
+<li>
+<p>Can be styled using <code>style: ButtonStyle(...),</code></p>
+<pre><code class="language-dart">TextButton(
+    onPressed: () {
+        print('TextButton Pressed');
+    },
+    child: Text('Click Me'),
+)
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Checkbox</strong></p>
+<ol>
+<li>
+<p>used to represent a boolean value, either checked or unchecked, and allows users to toggle this state.</p>
+<pre><code class="language-dart">// Simple Checkbox (Tick / Untick only)
+Checkbox(
+    value: !isMale,
+    activeColor: UtilMethods.hexToColor("#00853F"),
+    onChanged: (newValue) {
+        setState(() {isMale = false;});
+    },
+),
+
+// To display checkbox + text side by side, use Row
+Row(
+    children: [
+        Checkbox(
+            value: isMale,
+            activeColor: UtilMethods.hexToColor("#00853F"),
+            onChanged: (newValue) {
+                setState(() {isMale = true;});
+            },
+        ),
+        Text("Male"),
+    ],
+),
+
+// To display multiple checkbox + text side by side, use another Row
+Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+    Row(
+        children: [
+        Checkbox(
+            value: isMale,
+            activeColor: UtilMethods.hexToColor("#00853F"),
+            onChanged: (newValue) {
+            setState(() {
+                isMale = true;
+            });
+            },
+        ),
+        Text(AppLocalizations.of(context)!.male),
+        ],
+    ),
+    Row(
+        children: [
+        Checkbox(
+            value: !isMale,
+            activeColor: UtilMethods.hexToColor("#00853F"),
+            onChanged: (newValue) {
+            setState(() {
+                isMale = false;
+            });
+            },
+        ),
+        Text(AppLocalizations.of(context)!.female),
+        ],
+    ),
+    ],
+),
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>TextField</strong></p>
+<ol>
+<li>The TextField widget is used to allow users to input text.
+<pre><code class="language-dart">final TextEditingController _controller = TextEditingController();
+
+TextField(
+    controller: _controller,
+    decoration: InputDecoration(
+        hintText: 'Enter text',
+    ),
+)
+
+// get/set text field
+print(_controller.text);
+_controller.text = "string";
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="common-flutter-practices"><a class="header" href="#common-flutter-practices">Common Flutter Practices</a></h2>
 
                         </div>
                         <div class="sidetoc">

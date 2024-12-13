@@ -8,3 +8,4 @@
 - [Company Stuff](./company-stuff.md)
 - [Notes](./notes.md)
 - [Framework Notes](./framework-notes.md)
+- [Flutter Notes](./flutter-notes.md)
