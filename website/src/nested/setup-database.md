@@ -50,7 +50,7 @@
 
 1. To update data in database:
     ```sql
-    UPDATE users SET username = 'LIGMASIGMA', pwd = "P@ssw0rd" WHERE id = 2;
+    UPDATE users SET username = 'Jane Doe', pwd = "P@ssw0rd" WHERE id = 2;
     ```
 
 1. To delete data in database:

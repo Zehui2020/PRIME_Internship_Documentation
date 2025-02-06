@@ -316,7 +316,7 @@
 </li>
 <li>
 <p>To update data in database:</p>
-<pre><code class="language-sql">UPDATE users SET username = 'LIGMASIGMA', pwd = "P@ssw0rd" WHERE id = 2;
+<pre><code class="language-sql">UPDATE users SET username = 'Jane Doe', pwd = "P@ssw0rd" WHERE id = 2;
 </code></pre>
 </li>
 <li>
@@ -827,19 +827,19 @@ function SayName(string $name)
 }
 
 // Can assign default value
-function SayName($name = "Ligma")
+function SayName($name = "Jane Doe")
 {
     return $name;
 }
 
 // This will not work!
-string $name = "Ligma"
+string $name = "Jane Doe"
 function GetName()
 {
     return $name;
 }
 // Use this instead (tTy to avoid this unless you have a reason to. Pass in as parameter instead.)
-string $name = "Ligma"
+string $name = "Jane Doe"
 function GetName()
 {
     global $name;
