@@ -699,7 +699,7 @@
     MyApp.setLocale(context, LanguageOption.english);
     ```
 
-## API Communication
+## REST API Communication
 1. To use APIs through web, you'll need to use the `http` plugin. Ensure that you have the `http` plugin listed in `pubspec.yaml`. Run `pub get` to install the plugin.
     ```
     dependencies:
@@ -744,8 +744,8 @@
         }
         ```
         1. `sendUrl()` is an `async` method that returns a `Future<http.Response>`. This function sets the `User-Agent` header in the request (for security), then use the `http.get` method from `http` plugin we downloaded. 
-        1. We'll use `await` to wait for the async operations to run. This is to prevent `race cases`.
-        1. This function will request the api and return the response `asynchronously`.
+        1. We'll use `await` to wait for the async operations to run. This is to ensure the code runs sequentially despite having potential delays, as well as preventing `race cases`.
+        1. `sendUrl()` will request the api and return the response `asynchronously`.
 
 1. After getting the `http response`, we need to check for `200 ok` status code to see if the request was successful. If so, we `json_decode` the response's body and return it as `Map<String, dynamic>`.
     ```
@@ -757,6 +757,24 @@
     ```
 
 1. To use the `loginUser()` function in another file, we can just import it using:
-    ```
+    ``` dart
     import 'package:rewards/api_manager.dart';
+
+    Future<void> _login() async {
+        try {
+            final response = await ApiManager.loginUser(
+                mobileNumber,
+                password,
+            );
+
+            if (response['success'] == true) {
+                print("Success");
+            } else {
+                print("Failed To Login");
+            }
+        } catch (e) {
+            print(e.toString());
+        }
+    }
     ```
+    1. We'll create a wrapper function to handle the logic when login succeeds / fails / throws an exception. This function will also be an async function that returns `Future<void>`.

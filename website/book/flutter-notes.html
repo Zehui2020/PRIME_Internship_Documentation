@@ -1025,7 +1025,7 @@ MyApp.setLocale(context, LanguageOption.english);
 </code></pre>
 </li>
 </ol>
-<h2 id="api-communication"><a class="header" href="#api-communication">API Communication</a></h2>
+<h2 id="rest-api-communication"><a class="header" href="#rest-api-communication">REST API Communication</a></h2>
 <ol>
 <li>
 <p>To use APIs through web, you'll need to use the <code>http</code> plugin. Ensure that you have the <code>http</code> plugin listed in <code>pubspec.yaml</code>. Run <code>pub get</code> to install the plugin.</p>
@@ -1074,8 +1074,8 @@ MyApp.setLocale(context, LanguageOption.english);
 </code></pre>
 <ol>
 <li><code>sendUrl()</code> is an <code>async</code> method that returns a <code>Future&lt;http.Response&gt;</code>. This function sets the <code>User-Agent</code> header in the request (for security), then use the <code>http.get</code> method from <code>http</code> plugin we downloaded.</li>
-<li>We'll use <code>await</code> to wait for the async operations to run. This is to prevent <code>race cases</code>.</li>
-<li>This function will request the api and return the response <code>asynchronously</code>.</li>
+<li>We'll use <code>await</code> to wait for the async operations to run. This is to ensure the code runs sequentially despite having potential delays, as well as preventing <code>race cases</code>.</li>
+<li><code>sendUrl()</code> will request the api and return the response <code>asynchronously</code>.</li>
 </ol>
 </li>
 </ol>
@@ -1091,8 +1091,28 @@ MyApp.setLocale(context, LanguageOption.english);
 </li>
 <li>
 <p>To use the <code>loginUser()</code> function in another file, we can just import it using:</p>
-<pre><code>import 'package:rewards/api_manager.dart';
+<pre><code class="language-dart">import 'package:rewards/api_manager.dart';
+
+Future&lt;void&gt; _login() async {
+    try {
+        final response = await ApiManager.loginUser(
+            mobileNumber,
+            password,
+        );
+
+        if (response['success'] == true) {
+            print("Success");
+        } else {
+            print("Failed To Login");
+        }
+    } catch (e) {
+        print(e.toString());
+    }
+}
 </code></pre>
+<ol>
+<li>We'll create a wrapper function to handle the logic when login succeeds / fails / throws an exception. This function will also be an async function that returns <code>Future&lt;void&gt;</code>.</li>
+</ol>
 </li>
 </ol>
 
