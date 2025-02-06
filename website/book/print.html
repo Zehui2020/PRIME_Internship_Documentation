@@ -1215,7 +1215,7 @@ $writer-&gt;save('php://output');
 </li>
 <li>
 <p>Think of it as <code>"static"</code> widgets that are only built ONCE. (e.g a splash screen that displays only an image when app launches)</p>
-<pre><code class="language-dart">class MyStatelessWidget extends StatelessWidget {
+<pre><code class="language-java">class MyStatelessWidget extends StatelessWidget {
     final String text;
 
     MyStatelessWidget({required this.text});
@@ -1246,7 +1246,7 @@ $writer-&gt;save('php://output');
 </li>
 <li>
 <p>Can trigger rebuilds using setState to update the UI.</p>
-<pre><code class="language-dart">class MyStatefulWidget extends StatefulWidget {
+<pre><code class="language-java">class MyStatefulWidget extends StatefulWidget {
     @override
     _MyStatefulWidgetState createState() =&gt; _MyStatefulWidgetState();
 }
@@ -1335,7 +1335,7 @@ class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
 <ol>
 <li>Adds space inside widget boundaries</li>
 <li>Can specify padding for all sides or individually for top, bottom, left, and right.
-<pre><code class="language-dart">Padding(
+<pre><code class="language-java">Padding(
     padding: EdgeInsets.all(16.0), // 16 pixels of padding on all sides
     child: Text('Hello, Flutter!'),
 )
@@ -1347,7 +1347,7 @@ class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
 <p><strong>Center</strong></p>
 <ol>
 <li>Takes a single child and positions it in the middle of the parent.
-<pre><code class="language-dart">Center(
+<pre><code class="language-java">Center(
     child: Text('Hello, Flutter!'),
 )
 </code></pre>
@@ -1358,7 +1358,7 @@ class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
 <p><strong>Align</strong></p>
 <ol>
 <li>Takes a single child and aligns it in both <code>Main &amp; Cross Axis</code>.
-<pre><code class="language-dart">Center(
+<pre><code class="language-java">Center(
     alignment: Alignment.centerLeft,
     child: Text('Hello, Flutter!'),
 )
@@ -1370,7 +1370,7 @@ class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
 <p><strong>SizedBox</strong></p>
 <ol>
 <li>Create a box with specific dimensions. Often used for spacing, aligning, or constraining child widgets.
-<pre><code class="language-dart">SizedBox(height: 20.0) // Adds vertical space of 20 pixels.
+<pre><code class="language-java">SizedBox(height: 20.0) // Adds vertical space of 20 pixels.
 
 // Creates an ElevatedButton with dimmensions 100px x 50px
 SizedBox(
@@ -1398,7 +1398,7 @@ SizedBox(
 </div></li>
 <li>
 <p>Example:</p>
-<pre><code class="language-dart">Column(
+<pre><code class="language-java">Column(
     children: [
         Text('Item 1'),
         Text('Item 2'),
@@ -1422,7 +1422,7 @@ SizedBox(
 </div></li>
 <li>
 <p>Example:</p>
-<pre><code class="language-dart">Row(
+<pre><code class="language-java">Row(
     children: [
         Text('Item 1'),
         Text('Item 2'),
@@ -1447,7 +1447,7 @@ SizedBox(
 </li>
 <li>
 <p><code>NOTE</code>: <code>SingleChildScrollView</code> should not be used for lists with many items; use <code>ListView</code> instead for optimized performance.</p>
-<pre><code class="language-dart">SingleChildScrollView(
+<pre><code class="language-java">SingleChildScrollView(
     child: Column(
         children: [
             for (int i = 0; i &lt; 50; i++) Text('Item $i'),
@@ -1466,7 +1466,7 @@ SizedBox(
 </li>
 <li>
 <p>Can be styled using <code>style: ButtonStyle(...),</code></p>
-<pre><code class="language-dart">TextButton(
+<pre><code class="language-java">TextButton(
     onPressed: () {
         print('TextButton Pressed');
     },
@@ -1481,7 +1481,7 @@ SizedBox(
 <ol>
 <li>
 <p>used to represent a boolean value, either checked or unchecked, and allows users to toggle this state.</p>
-<pre><code class="language-dart">// Simple Checkbox (Tick / Untick only)
+<pre><code class="language-java">// Simple Checkbox (Tick / Untick only)
 Checkbox(
     value: !isMale,
     activeColor: UtilMethods.hexToColor("#00853F"),
@@ -1545,8 +1545,9 @@ Row(
 <li>
 <p><strong>TextField</strong></p>
 <ol>
-<li>The TextField widget is used to allow users to input text.
-<pre><code class="language-dart">final TextEditingController _controller = TextEditingController();
+<li>
+<p>The TextField widget is used to allow users to input text.</p>
+<pre><code class="language-java">final TextEditingController _controller = TextEditingController();
 
 TextField(
     controller: _controller,
@@ -1559,11 +1560,496 @@ TextField(
 print(_controller.text);
 _controller.text = "string";
 </code></pre>
-</li>
+<div class="table-wrapper"><table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td>controller</td><td>A TextEditingController that controls the text being edited.</td></tr>
+<tr><td>decoration</td><td>Allows customizing the visual appearance of the TextField (e.g., hint, border, icons).</td></tr>
+<tr><td>keyboardType</td><td>Defines the type of keyboard to be displayed (e.g., TextInputType.number, TextInputType.emailAddress).</td></tr>
+<tr><td>textInputAction</td><td>Defines what action appears on the keyboard (e.g., TextInputAction.done).</td></tr>
+<tr><td>onChanged</td><td>A callback triggered when the text changes.</td></tr>
+<tr><td>onSubmitted</td><td>A callback triggered when the user submits the input (e.g., presses "Enter").</td></tr>
+<tr><td>maxLines</td><td>The maximum number of lines that the text field can expand to (for multi-line input).</td></tr>
+<tr><td>obscureText</td><td>Hides the text (useful for passwords).</td></tr>
+<tr><td>autocorrect</td><td>Enables or disables autocorrection for text input.</td></tr>
+<tr><td>autofocus</td><td>Whether the field should automatically gain focus when the widget is displayed.</td></tr>
+</tbody></table>
+</div></li>
 </ol>
 </li>
 </ol>
 <h2 id="common-flutter-practices"><a class="header" href="#common-flutter-practices">Common Flutter Practices</a></h2>
+<ol>
+<li>
+<p>Use <code>Stateful Widgets</code> Wisely. Only use StatefulWidget when you need to update the UI based on user interaction or other events.</p>
+</li>
+<li>
+<p>Avoid Large Widgets in Build Methods. Break down large widgets into smaller components to make the code easier to read and maintain.</p>
+</li>
+<li>
+<p>Use <code>const</code> Constructors When Possible. It improves performance as it helps Flutter optimize the widget tree and avoid unnecessary rebuilds.</p>
+</li>
+<li>
+<p>Leverage <code>Async</code> and <code>Await</code> for <code>Async Operations</code>. For async operations, always use async/await for better readability and maintainability.</p>
+</li>
+<li>
+<p>Follow the <code>DRY Principle</code>. <code>Don't Repeat Yourself</code>. Try to <code>modularize</code> widgets/methods as much as possible.</p>
+</li>
+<li>
+<p>Use <code>Responsive Design</code>. Use <code>screen width</code> &amp; <code>screen height</code> percentages for positioning &amp; padding. This is to ensure responsiveness in your app.</p>
+</li>
+</ol>
+<h2 id="navigator"><a class="header" href="#navigator">Navigator</a></h2>
+<ol>
+<li>
+<p>To change pages in your mobile app, I recommend using flutter's built-in <code>Navigator</code> class.</p>
+</li>
+<li>
+<p><code>Route</code>: A route is essentially a screen or a page in your app. In Flutter, each screen is typically represented by a Widget, and routes are managed by the Navigator.</p>
+</li>
+<li>
+<p><code>Stack-Based Navigation</code>: The Navigator uses a stack to manage routes. <code>Pushing</code> a new <code>route</code> places it at the top of the stack. <code>Popping</code> the stack removes the <code>route</code> at the top of the stack.</p>
+</li>
+<li>
+<p>Basic implementation of changing page:</p>
+<pre><code class="language-java">Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context) =&gt; NewPage(),
+    ),
+);
+</code></pre>
+<ol>
+<li><code>context</code>: The current context, used to find the navigator in the widget tree.</li>
+<li><code>MaterialPageRoute</code>: A common type of route that animates with a material-style transition.</li>
+<li><code>builder</code>: A function that returns the widget for the new screen.</li>
+</ol>
+</li>
+<li>
+<p>To go back 1 page:</p>
+<pre><code class="language-java">Navigator.pop(context);
+</code></pre>
+<ol>
+<li><code>NOTE</code>: Be careful when using pop. If you accidently pop the last <code>route</code> in the stack, you'll get a black screen.</li>
+</ol>
+</li>
+<li>
+<p>If you'd like to use <code>named routes</code> where you assign a string to a page instead, you can do so like so:</p>
+<ol>
+<li>
+<p>Go to your <code>main.dart</code> and under the <code>MaterialApp</code>, define the <code>routes</code> and their associated names:</p>
+<pre><code class="language-java">MaterialApp(
+    initialRoute: '/',
+    routes: {
+        '/': (context) =&gt; HomePage(),
+        '/new': (context) =&gt; NewPage(),
+    },
+);
+</code></pre>
+<p><code>initialRoute</code>: Sets the first page shown on the application's launch.</p>
+</li>
+<li>
+<p>Use <code>pushNamed</code> instead when changing pages:</p>
+<pre><code class="language-java">Navigator.pushNamed(context, '/new');
+</code></pre>
+</li>
+<li>
+<p><code>Pop</code> remains unchanged:</p>
+<pre><code class="language-java">Navigator.pop(context);
+</code></pre>
+</li>
+<li>
+<p>Other commonly used functions:</p>
+<ol>
+<li><code>pushReplacement()</code>: Removes the current route from the stack and pushes a new route in its place.
+<pre><code class="language-java">Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) =&gt; NewPage()),
+);
+</code></pre>
+</li>
+<li><code>pushAndRemoveUntil()</code>: Pushes a new route onto the stack and removes all the routes until a specific condition is met.
+<pre><code class="language-java">Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) =&gt; NewPage()),
+    (Route&lt;dynamic&gt; route) =&gt; false, // Remove all previous routes
+);
+</code></pre>
+</li>
+<li><code>popUntil()</code>: Pops routes until a specific route condition is met, without removing the route you're looking for.
+<pre><code class="language-java">Navigator.popUntil(context, ModalRoute.withName('/home'));
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>You can control how new routes are pushed onto the stack, including the transition animations, by using custom PageRoute implementations.</p>
+<pre><code class="language-java">Navigator.push(
+    context,
+    PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =&gt; NewPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(position: offsetAnimation, child: child);
+        },
+    ),
+);
+</code></pre>
+<p><code>NOTE</code>: I recommend seperating the transition into it's own class extending <code>PageRouteBuilder</code>. With this, you can use the same transition anytime you want to change your pages like so:</p>
+<pre><code class="language-java">class SlidePageRoute extends PageRouteBuilder {
+    final Widget page;
+    final double duration;
+
+    SlidePageRoute({required this.page, this.duration = 250})
+        : super(
+        pageBuilder: (context, animation, secondaryAnimation) =&gt; page,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.easeInOut;
+            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            var offsetAnimation = animation.drive(tween);
+
+            return SlideTransition(position: offsetAnimation, child: child);
+        },
+        transitionDuration: Duration(milliseconds: duration.toInt()),
+    );
+}
+
+// When changing pages
+Navigator.push(
+    context,
+    SlidePageRoute(page: const NewPage())
+);
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="custom-classes--functions"><a class="header" href="#custom-classes--functions">Custom Classes &amp; Functions</a></h2>
+<ol>
+<li>
+<p>Creating classes is similar to <code>Java</code>. You can do it like so:</p>
+<pre><code class="language-java">class MyClass
+{
+    int index = 0;
+    final bool isMale;
+    late String string;
+
+    MyClass({this.index = 0, required this.isMale});
+
+    void printString(){
+        string = "Among Us";
+        print(string);
+    }
+
+    String getString(){
+        return string;
+    }
+}
+
+class TestClass
+{
+    MyClass myClass = MyClass(isMale: true);
+    MyClass myClass1 = MyClass(isMale: true, index: 100);
+}
+</code></pre>
+<ol>
+<li>
+<p>However, unlke <code>Java</code>, you <strong>MUST</strong> define a value for vairables you create. Either through the calss's contructor or by directly assigning it. If you want to define the value later in your code, you can mark it as <code>late</code>.</p>
+</li>
+<li>
+<p>Marking a vairable as <code>final</code> assigns a value to the vairable only once, and that value cannot be modified afterward, similar to <code>const</code>. However, the value can be determined during runtime through the <code>contructor</code>, unlike a const variable, which must be known at compile time. You <strong>MUST</strong> assign the value through the contructor or directly assign the value when using <code>final</code>.</p>
+</li>
+<li>
+<p>To ensure a vairable is assigned a value when calling the class's <code>contructor</code>, you can use the <code>required</code> modifier.</p>
+</li>
+<li>
+<p>You can also assign a default value to a vairable in the <code>contructor</code>. This makes it optional to assign the value through the <code>contructor</code> when you <code>instantiate</code> the class later.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="adding-custom-assets-images-fonts-etc"><a class="header" href="#adding-custom-assets-images-fonts-etc">Adding Custom Assets (Images, Fonts, etc.)</a></h2>
+<ol>
+<li>
+<p><code>pubsec.yaml</code> is essential for managing the packages and libraries your project relies on, specifying the minimum required versions, and organizing resources like images, fonts, and localization files. It comes installed with <code>Flutter</code>. You can find it in the root folder of your project.</p>
+</li>
+<li>
+<p>Create a new folder called assets in the <code>root</code> folder of your project.</p>
+</li>
+<li>
+<p>Create 2 sub folders called <code>fonts</code> and <code>images</code>. Add your fonts and images into the respective folders.</p>
+</li>
+<li>
+<p>Inside the <code>pubsec.yaml</code> file, find the <code>assets:</code> section under <code>flutter:</code>. Uncomment it and add the following:</p>
+<pre><code class="language-yaml">assets:
+    - assets/images/
+</code></pre>
+<p>This references the images folder, and you're now able to access all the images under the <code>assets/images</code> folder like so:</p>
+<pre><code class="language-java">Image.asset(
+    'assets/images/image.png',
+    height: screenHeight * 0.15,
+    fit: BoxFit.contain,
+),
+</code></pre>
+<p><code>NOTE</code>: Be sure to click on the <code>pub get</code> button that'll appear at the below the tabs list after making changes to <code>pubsec.yaml</code>, or your changes won't be saved!</p>
+</li>
+<li>
+<p>To add your custom fonts in <code>pubsec.yaml</code> file, find the <code>fonts:</code> section under <code>flutter:</code>. Uncomment it and add the following:</p>
+<pre><code class="language-yaml">fonts:
+   - family: AcuminVairableConcept
+    fonts:
+    - asset: assets/fonts/AcuminVariableConcept.otf
+</code></pre>
+<p>Unfortunatley, unlike images, you have to define the file path to each individual font and which family it belongs to. You can use the font like so:</p>
+<pre><code class="language-java">Text(
+    "Mobile No*",
+    style: const TextStyle(
+        fontFamily: "AcuminVairableConcept"
+    ),
+),
+</code></pre>
+</li>
+</ol>
+<h2 id="localization"><a class="header" href="#localization">Localization</a></h2>
+<ol>
+<li>
+<p>You can refer to the full documentation for setting up localization <a href="https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization">here</a>.</p>
+</li>
+<li>
+<p>Add the following dependencies in your pubsec.yaml file:</p>
+<pre><code class="language-yaml">dependencies:
+flutter:
+    sdk: flutter
+flutter_localizations:
+    sdk: flutter
+intl: any
+</code></pre>
+<p>Be sure to do <code>pub get</code> to install the dependecies.</p>
+</li>
+<li>
+<p>In main.dart, import the necessary package.</p>
+<pre><code class="language-dart">import 'package:flutter_localizations/flutter_localizations.dart';
+</code></pre>
+</li>
+<li>
+<p>You can now define which locales your app will support in the <code>build()</code> in <code>main.dart</code>, along with the necessary delegates:</p>
+<pre><code class="language-java">return const MaterialApp(
+  ...
+  localizationsDelegates: const [
+    AppLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: const [
+    Locale('en', ''), // English
+    Locale('zh', 'CN'), // Simplified Chinese
+  ],
+  locale: Locale('en', ''), // Set default locale
+  ...
+);
+</code></pre>
+</li>
+<li>
+<p>Now, to add your own localized messages, you'll need to:</p>
+</li>
+<li>
+<p>Add the intl package as a dependency, pulling in the version pinned by <code>flutter_localizations</code>. Run this in the project's terminal:</p>
+<pre><code>flutter pub add intl:any
+</code></pre>
+</li>
+<li>
+<p>Open the pubspec.yaml file and enable the generate flag under the <code>flutter:</code> section:</p>
+<pre><code class="language-yaml">flutter:
+    ...
+    generate: true # Add this line
+    ...
+</code></pre>
+</li>
+<li>
+<p>Create a new yaml file in your project's <code>root</code> directory. Name it <code>l10n.yaml</code> and add the following:</p>
+<pre><code class="language-yaml">arb-dir: lib\localization
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+</code></pre>
+</li>
+<li>
+<p>Now under <code>lib</code> folder, create a sub folder called <code>localization</code> and create 2 files inside the folder:</p>
+<ol>
+<li>app_en.arb (For english)</li>
+<li>app_zh.arb (For chinese)</li>
+</ol>
+</li>
+<li>
+<p>Now run the following command in the project terminal:</p>
+<pre><code>run flutter gen-l10n
+</code></pre>
+<p>You should find generated files in <code>${FLUTTER_PROJECT}/.dart_tool/flutter_gen/gen_l10n</code> after the command executes.</p>
+</li>
+<li>
+<p>Now you're all set up! To define locales, do so in the <code>app_en.arb</code> and <code>app_zh.arb</code> files like so:</p>
+<pre><code class="language-arb">// app_en.arb
+{
+    "noNameError": "Please provide your full name.",
+}
+
+//app_zh.arb
+{
+    "noNameError": "CHINESE VERSION HERE",
+}
+</code></pre>
+<p>Be sure to save your project (using <code>CTRL + S</code>) after making changes to either files.</p>
+</li>
+<li>
+<p>To make use of the locales in your app, you can do so using:</p>
+<pre><code class="language-java">import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+Text(AppLocalizations.of(context)!.noNameError);
+</code></pre>
+</li>
+<li>
+<p>To change the locales during runtime, you'll have to convert your <code>main widget</code> to a <code>stateful widget</code> and store the locale in a vairable like so:</p>
+<pre><code class="language-java">enum LanguageOption {
+    english,
+    chinese
+}
+
+class MyApp extends StatefulWidget {
+    const MyApp({super.key});
+
+    static void setLocale(BuildContext context, LanguageOption newLanguage) async {
+        _MyAppState? state = context.findAncestorStateOfType&lt;_MyAppState&gt;();
+
+        switch (newLanguage)
+        {
+            case LanguageOption.english:
+                state?.changeLanguage(const Locale('en', ''));
+                break;
+            case LanguageOption.chinese:
+                state?.changeLanguage(const Locale('zh', 'CN'));
+                break;
+        }
+
+        languageOption = newLanguage;
+        saveData();
+    }
+
+    @override
+    State&lt;MyApp&gt; createState() =&gt; _MyAppState();
+}
+
+class _MyAppState extends State&lt;MyApp&gt; {
+    Locale _locale = const Locale('en', '');
+
+    changeLanguage(Locale locale) {
+        setState(() {
+        _locale = locale;
+        });
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+                Locale('en', ''),
+                Locale('zh', 'CN'),
+            ],
+            locale: _locale,
+        );
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>All you need now are 2 <code>checkboxes</code> that called the <code>MyApp.setLocale()</code> function:</p>
+<pre><code class="language-java">// Switch to chinese
+MyApp.setLocale(context, LanguageOption.chinese);
+// Switch to english
+MyApp.setLocale(context, LanguageOption.english);
+</code></pre>
+</li>
+</ol>
+<h2 id="api-communication"><a class="header" href="#api-communication">API Communication</a></h2>
+<ol>
+<li>
+<p>To use APIs through web, you'll need to use the <code>http</code> plugin. Ensure that you have the <code>http</code> plugin listed in <code>pubspec.yaml</code>. Run <code>pub get</code> to install the plugin.</p>
+<pre><code>dependencies:
+    http: ^1.0.0
+</code></pre>
+</li>
+<li>
+<p>It's recommend to <code>decouple</code> the API logic to its own class, so I created a file called <code>api_manager.dart</code>.</p>
+</li>
+<li>
+<p>As API calls can take time depending on the network <code>traffic</code> &amp; <code>connection</code>, we'll be using Flutter's <code>Future</code> class. <code>Future</code> is an <code>abstract interface class</code> usually used in asynchronous operations.</p>
+</li>
+<li>
+<p>We can further <code>decouple</code> each API's logic to its own individual function like so:</p>
+<pre><code class="language-java">static Future&lt;Map&lt;String, dynamic&gt;&gt; loginUser(String mobile, String password) async {
+    final url = Uri.parse('$apiURL?v=1&amp;action=login-user&amp;mobile_number=$mobile&amp;password=$password');
+    http.Response response = await UtilMethods.sendUrl(url);
+
+    print(response.body);
+
+    if (response.statusCode == 200) {
+        return json.decode(response.body);
+    } else {
+        throw Exception('Failed to log in');
+    }
+}
+</code></pre>
+<ol>
+<li>Firstly, we define an <code>asynchronous static</code> function that returns a <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> class. <code>Map&lt;String, dynamic&gt;</code> can be modified according to the API response you have. In this example, the API response is an <code>associative array</code> in php (<code>Map</code> in dart) called <code>response</code>:
+<pre><code class="language-php">$response = [
+    "success" =&gt; true,
+    "message" =&gt; "loginSuccess",
+    "data" =&gt; "UsernameHere"
+]
+</code></pre>
+</li>
+<li>Next, we create the <code>API URL</code> using Flutter's <code>Uri.parse()</code>. Then send it using a custom <code>sendUrl()</code> function:
+<pre><code class="language-dart">static Future&lt;http.Response&gt; sendUrl(Uri url) async {
+    final headers = {
+        'User-Agent':  await getUserAgent(),
+    };
+
+    return await http.get(url, headers: headers);
+}
+</code></pre>
+<ol>
+<li><code>sendUrl()</code> is an <code>async</code> method that returns a <code>Future&lt;http.Response&gt;</code>. This function sets the <code>User-Agent</code> header in the request (for security), then use the <code>http.get</code> method from <code>http</code> plugin we downloaded.</li>
+<li>We'll use <code>await</code> to wait for the async operations to run. This is to prevent <code>race cases</code>.</li>
+<li>This function will request the api and return the response <code>asynchronously</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>After getting the <code>http response</code>, we need to check for <code>200 ok</code> status code to see if the request was successful. If so, we <code>json_decode</code> the response's body and return it as <code>Map&lt;String, dynamic&gt;</code>.</p>
+<pre><code>if (response.statusCode == 200) {
+    return json.decode(response.body);
+} else {
+    throw Exception('Failed to log in');
+}
+</code></pre>
+</li>
+<li>
+<p>To use the <code>loginUser()</code> function in another file, we can just import it using:</p>
+<pre><code>import 'package:rewards/api_manager.dart';
+</code></pre>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
